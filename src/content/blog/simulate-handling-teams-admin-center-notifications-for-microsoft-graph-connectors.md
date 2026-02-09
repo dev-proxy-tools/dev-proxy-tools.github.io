@@ -16,7 +16,7 @@ We recognize the challenge for developers testing the deployment of their Graph 
 
 Are you ready to get started? First, install the latest Dev Proxy beta by following these [setup instructions](https://learn.microsoft.com/en-us/microsoft-cloud/dev/dev-proxy/get-started?tabs=powershell&pivots=client-operating-system-macos#:~:text=To%20try%20the%20latest%20preview%20features%2C%20install%20the%20beta%20version%20of%20Dev%20Proxy%20by%20running%20the%20following%20command%3A). Next, you'll want to have the source code for your Graph connector Teams app handy. You can also grab the Graph connectors Dev Proxy preset [here](https://adoption.microsoft.com/en-us/sample-solution-gallery/sample/pnp-devproxy-microsoft-graph-connector-notification/). Next, start Dev Proxy and the Graph connector notification handling API. Finally, press 'w' in the terminal running Dev Proxy to trigger the webhook notification from Teams Admin Center. Happy testing!
 
-![Dev Proxy simulating Teams Admin Center notification](/blog/images/a-screenshot-of-a-computer-description-automatica.png)
+![Dev Proxy simulating Teams Admin Center notification](/web/blog/images/a-screenshot-of-a-computer-description-automatica.png)
 
 ## Conclusion
 

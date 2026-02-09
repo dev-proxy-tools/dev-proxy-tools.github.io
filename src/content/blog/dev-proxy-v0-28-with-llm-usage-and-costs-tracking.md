@@ -32,11 +32,11 @@ This plugin intercepts LLM requests from your application, and for each request 
 
 You can visualize the usage patterns and costs using specialized solutions such as [OpenLIT](https://openlit.io/):
 
-![OpenLIT visualizing language model usage data emitted by Dev Proxy](/blog/images/word-image-24354-1.png)
+![OpenLIT visualizing language model usage data emitted by Dev Proxy](/web/blog/images/word-image-24354-1.png)
 
 Or generic Open Telemetry dashboards such as .NET Aspire:
 
-![The .NET Aspire dashboard visualizing language model usage information emitted by Dev Proxy](/blog/images/word-image-24354-2.png)
+![The .NET Aspire dashboard visualizing language model usage information emitted by Dev Proxy](/web/blog/images/word-image-24354-2.png)
 
 Use Dev Proxy and the new OpenAITelemetryPlugin and [understand how your application is using language models](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/understand-language-model-usage?tabs=aspire), before you go live.
 

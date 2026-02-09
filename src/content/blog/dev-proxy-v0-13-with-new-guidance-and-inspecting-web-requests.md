@@ -26,7 +26,7 @@ One of the frequent requests that we got from you was for Dev Proxy to show more
 
 We're excited to introduce a new plugin that uses Chrome DevTools Protocol to let you explore requests and responses!
 
-![Edge Dev Tools showing requests and responses intercepted by Dev Proxy](/blog/images/Blog.png)
+![Edge Dev Tools showing requests and responses intercepted by Dev Proxy](/web/blog/images/Blog.png)
 
 Using Chrome DevTools Protocol for inspecting requests intercepted by Dev Proxy is convenient for several reasons.
 
@@ -34,7 +34,7 @@ First of all, it's the same user interface that you already know from building w
 
 Dev Proxy is a command line tool, and its UI is limited by the textual nature of the terminal. Using Chrome DevTools Protocol takes Dev Proxy beyond the terminal and gives you a richer UX with the ability to filter requests and messages. You'll find it particularly convenient when using Dev Proxy with apps that issue many API requests. Using Chrome DevTools Protocol allows us to provide you with detailed information about all intercepted requests and responses without cluttering the terminal output.
 
-![Dev Proxy messages warnings and guidance displayed in Edge Dev Tools](/blog/images/blog2.png)
+![Dev Proxy messages warnings and guidance displayed in Edge Dev Tools](/web/blog/images/blog2.png)
 
 Depending on your preference, you can use DevTools in Edge, Edge Dev channel or Chrome to inspect requests intercepted by Dev Proxy. Check it out and let us know how you like it!
 
@@ -44,7 +44,7 @@ Recently, we published [new guidance about Microsoft Search APIs](https://devblo
 
 To help you understand where in your applications you're using OneDrive and SharePoint search APIs, and which you could update to use the recommended Microsoft Search APIs in Microsoft Graph, we introduce in this version of Dev Proxy new guidance plugin.
 
-![Dev Proxy warning of using OneDrive and SharePoint search APIs](/blog/images/blogother.png)
+![Dev Proxy warning of using OneDrive and SharePoint search APIs](/web/blog/images/blogother.png)
 
 ## There's more
 

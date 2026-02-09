@@ -29,7 +29,7 @@ In this version, we extend the CrudApiPlugin with support for simulating APIs se
 
 When defining your CRUD API, you can choose which aspect of the access token you want to validate, like the audience, issuer, permissions or token lifetime, which is perfect for working with simulated access tokens. You can also choose to validate the token signature to ensure that the app is using a real token!
 
-![Dev Proxy simulating a CRUD API secured with Microsoft Entra](/blog/images/TODAY_01.png)
+![Dev Proxy simulating a CRUD API secured with Microsoft Entra](/web/blog/images/TODAY_01.png)
 
 Learn more about [simulating CRUD APIs with Dev Proxy](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-crud-api).
 
@@ -39,7 +39,7 @@ Many apps built on Microsoft cloud are secured with Microsoft Entra. Before you 
 
 In this version we introduce the new EntraMockResponsePlugin which allows you to simulate OAuth flows. After detecting an OAuth flow, the plugin updates auth codes and simulated access tokens so that they're accepted by Microsoft Identity libraries.
 
-![Dev Proxy simulating OAuth flow for an app built using Microsoft Graph Toolkit](/blog/images/Screenshot-2024-02-27-141313.png)
+![Dev Proxy simulating OAuth flow for an app built using Microsoft Graph Toolkit](/web/blog/images/Screenshot-2024-02-27-141313.png)
 
 Stay tuned for more information and examples of using this plugin in the coming weeks.
 
@@ -47,7 +47,7 @@ Stay tuned for more information and examples of using this plugin in the coming 
 
 To help you reuse your presets like generating OpenAPI specs, generating mocks, and execution summaries with different APIs, in this release we introduce a new option – urlsToWatch. This option enables you to provide URLs to watch from the command line. Simply use `-u` or `–urls-to-watch` and specify the URLs you want to monitor, without having to change your presets!
 
-![Starting Dev Proxy with specifying URLs to monitor from the command line](/blog/images/TODAY_03.png)
+![Starting Dev Proxy with specifying URLs to monitor from the command line](/web/blog/images/TODAY_03.png)
 
 In this version, we also introduce support for monitoring URLs on a specific port only! This is invaluable if you build apps, for example using .NET Aspire, where you have several APIs running locally and want to watch requests to one of them. This feature gives you fine-grained control over URL watching for a more precise developer experience.
 
@@ -59,7 +59,7 @@ Plugins in Dev Proxy give you the ability configure it to your specific needs. W
 
 Previously, we introduced the ability to add multiple instances of the same plugin. This is invaluable in cases where you want to, for example define multiple instances of CRUD APIs or define mocks which you can reuse across different presets. In this version, we improved this ability further by changing how plugins expose their command-line options, to avoid conflicts between the different instances.
 
-![Sample Dev Proxy configuration with multiple instances of the same plugin](/blog/images/TODAY_04.png)
+![Sample Dev Proxy configuration with multiple instances of the same plugin](/web/blog/images/TODAY_04.png)
 
 ## More flexible simulating throttling
 

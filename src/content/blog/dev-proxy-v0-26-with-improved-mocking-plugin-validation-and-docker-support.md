@@ -28,7 +28,7 @@ Thanks to [Thomas Ploch](https://github.com/tPl0ch) and [Stephan van Rooij](http
 
 There are many solutions out there that use SharePoint Client-Side Object Model (CSOM) APIs to integrate with SharePoint. To help organizations tighten their security, we're releasing [a new plugin that analyzes CSOM requests](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/technical-reference/minimalcsompermissionsplugin) and determines the minimal permissions needed for these operations.
 
-![Dev Proxy listing minimal permissions required to get a list of SharePoint sites](/blog/images/word-image-24007-1.png)
+![Dev Proxy listing minimal permissions required to get a list of SharePoint sites](/web/blog/images/word-image-24007-1.png)
 
 ## Easily discover and configure URLs to watch
 
@@ -57,7 +57,7 @@ When using mock responses, Dev Proxy now checks that all mocked URLs are covered
 
 In each plugin config, including plugins that we ship with Dev Proxy and custom plugins that you build, you can now add `$schema`. At startup, Dev Proxy will validate each config section against the specified schema. This helps you quickly spot and fix any misconfigurations.
 
-![Dev Proxy showing an error in a plugin configuration](/blog/images/word-image-24007-2.png)
+![Dev Proxy showing an error in a plugin configuration](/web/blog/images/word-image-24007-2.png)
 
 ## Breaking changes
 

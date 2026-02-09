@@ -23,15 +23,15 @@ In the previous versions of Dev Proxy, each plugin produced its own output. For 
 
 In this release, we introduce Reporters: a new sort of plugin capable of turning structured output from plugins into a specific format, such as markdown or JSON. Plugins that process recorded requests, next to standard console output, produce now an object with a report of their output. One or more reporters can then take this report and convert it into a specific format.
 
-![Dev Proxy configuration including the ApiCenterOnboardingPlugin and the MarkdownReporter](/blog/images/word-image-21678-1.png)
+![Dev Proxy configuration including the ApiCenterOnboardingPlugin and the MarkdownReporter](/web/blog/images/word-image-21678-1.png)
 
 After running Dev Proxy, the Markdown reporter produces a report named ApiCenterOnboardingPlugin_MarkdownReporter.md.
 
-![GitHub workflow log showing the step of writing the API Center onboarding report to the job summary](/blog/images/word-image-21678-2.png)
+![GitHub workflow log showing the step of writing the API Center onboarding report to the job summary](/web/blog/images/word-image-21678-2.png)
 
 You can easily use the contents of the generated report for example in a workflow summary:
 
-![Dev Proxy API Center onboarding report displayed in GitHub job summary](/blog/images/word-image-21678-3.png)
+![Dev Proxy API Center onboarding report displayed in GitHub job summary](/web/blog/images/word-image-21678-3.png)
 
 We offer reporters for markdown, JSON and plain-text output. Each reporter creates a separate file for the reports it generated. Because these files have predictable names, you can easily integrate them in your processes for further processing.
 
@@ -78,7 +78,7 @@ APIs are becoming more and more important. Especially in this era of AI, where A
 
 Previously, we introduced the ability for Dev Proxy to generate an OpenAPI spec for your API. All you need to do is start Dev Proxy and call your API. Dev Proxy records the requests and responses and generates an OpenAPI spec for you!
 
-![Dev Proxy generating an OpenAPI spec based on intercepted API requests](/blog/images/word-image-21678-4.png)
+![Dev Proxy generating an OpenAPI spec based on intercepted API requests](/web/blog/images/word-image-21678-4.png)
 
 In this version, we further improve the ability to generate OpenAPI specs. You can now generate an OpenAPI spec for an API simulated using the [CRUD API plugin](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/technical-reference/crudapiplugin). This combination is perfect for when your API is still in development, and you need an API spec for integrating it.
 
@@ -88,7 +88,7 @@ Learn more about [generating OpenAPI specs](https://learn.microsoft.com/microsof
 
 In this version, we refactored logging to console. The most notable change is that messages related to the same request are now grouped, so that you no longer need to manually match them together.
 
-![Updated logging to console in Dev Proxy v0.18](/blog/images/word-image-21678-5.png)
+![Updated logging to console in Dev Proxy v0.18](/web/blog/images/word-image-21678-5.png)
 
 We've also shortened the labels and made logging more compact to fit more content in the terminal window.
 
@@ -116,7 +116,7 @@ In the session, [Build apps that don't fail in production](https://collabsummit.
 
 The session was packed full of demos, starting with the basics of installing, configuring and running Dev Proxy on Windows, then showing how to simulate API errors and behaviors like throttling. Next, how to use presets, like the preset designed specifically for Microsoft 365 app development like mocking Microsoft Graph responses and checking whether applications are using the correct permission scopes. And finally, how you can simulate CRUD APIs to speed up development that relies on APIs that are in the process of being updated, or even have not yet been built.
 
-![Garry Trinder on stage at European Collaboration Summit in Wiesbaden, Germany.](/blog/images/no-alt-text-provided-for-this-image.jpeg)
+![Garry Trinder on stage at European Collaboration Summit in Wiesbaden, Germany.](/web/blog/images/no-alt-text-provided-for-this-image.jpeg)
 
 *Photo: SeyedMojtaba SeyedHosseini*
 

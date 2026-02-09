@@ -21,7 +21,7 @@ We're thrilled to announce the release of Dev Proxy v1.3.0! This update introduc
 
 We're introducing the `HarGeneratorPlugin`, a powerful new addition that generates industry-standard HTTP Archive (HAR) files from intercepted API requests and responses.
 
-![Screenshot of VSCode with the generated HAR file open](/blog/images/image-scaled.png)
+![Screenshot of VSCode with the generated HAR file open](/web/blog/images/image-scaled.png)
 
 ### What are HAR files?
 
@@ -38,7 +38,7 @@ HTTP Archive files are the universal standard for recording network activity. Th
 
 For developers building AI-powered applications, we've added the `OpenAIUsageDebuggingPlugin` – a specialized tool that logs OpenAI API usage metrics real-time to CSV files for debugging and cost analysis.
 
-![Screenshot of a CSV file with information about LLM usage](/blog/images/image2-scaled.png)
+![Screenshot of a CSV file with information about LLM usage](/web/blog/images/image2-scaled.png)
 
 **Key capabilities:**
 

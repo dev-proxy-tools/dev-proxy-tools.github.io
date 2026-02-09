@@ -49,7 +49,7 @@ devproxy --config-file "~appFolder/presets/urls-to-watch.json" --watch-process-n
 
 Dev Proxy tracks all unique URLs and gives you a list that you can easily copy to your Dev Proxy config file.
 
-![Now you can use Dev Proxy to discover URLs to watch](/blog/images/word-image-23729-1.png)
+![Now you can use Dev Proxy to discover URLs to watch](/web/blog/images/word-image-23729-1.png)
 
 **Tip:** To ensure that Dev Proxy only intercepts URLs from your app, we recommend that you only watch for requests from a specific process, specifying it either by name or ID.
 
@@ -61,7 +61,7 @@ Learn more about [discovering which URLs to watch](https://learn.microsoft.com/m
 
 In the past, when you used Dev Proxy with an application that issues many API requests, you might've found it hard to relate Dev Proxy output to your application's activity. Following the feedback from our customers, in this version we release printing the timestamp of each intercepted request using a new time message.
 
-![Dev Proxy shows the timestamp of the intercepted request making it easier to correlate it with the application activity](/blog/images/word-image-23729-2.png)
+![Dev Proxy shows the timestamp of the intercepted request making it easier to correlate it with the application activity](/web/blog/images/word-image-23729-2.png)
 
 We believe that this feature will help you associate requests from your application with Dev Proxy's output. Also, if you use Dev Proxy for longer time, you no longer need to restart it and can more easily see which messages relate to your latest activity.
 

@@ -41,7 +41,7 @@ To create a new configuration file, run:
 devproxy config new
 ```
 
-![Easily create a new Dev Proxy configuration file using the new config new command](/blog/images/word-image-23844-1.png)
+![Easily create a new Dev Proxy configuration file using the new config new command](/web/blog/images/word-image-23844-1.png)
 
 If you don't specify a name, this command creates a file with the default devproxyrc.json name. If a file with the same name exists, Dev Proxy will append a number (e.g., devproxyrc_2.json) to ensure uniqueness.
 
@@ -53,7 +53,7 @@ When running devproxy -h, options provided by plugins were not displayed due to 
 
 With this update, Dev Proxy loads plugins when displaying help (-h), making it easier to see the available commands and options.
 
-![Dev Proxy showing plugins' options in its help information](/blog/images/word-image-23844-2.png)
+![Dev Proxy showing plugins' options in its help information](/web/blog/images/word-image-23844-2.png)
 
 ## Smarter handling of –urls-to-watch
 
@@ -61,7 +61,7 @@ Previously, the –urls-to-watch argument allowed you to override URLs specified
 
 By updating the URL of the requests in random errors file to `https://*/*` you retain the ability to override URLs to watch from command line.
 
-![Make request URLs in random errors file generic to allow overriding them from command line](/blog/images/word-image-23844-3.png)
+![Make request URLs in random errors file generic to allow overriding them from command line](/web/blog/images/word-image-23844-3.png)
 
 We've updated the default errors file that we include with Dev Proxy to reflect this change and show you how it works in action.
 
@@ -73,7 +73,7 @@ This version includes several breaking changes.
 
 Previously, the `rate` option, that defines the request failure rate, was exposed as a global configuration property, but in practice, it only applied to the Graph- and GenericRandomError plugins. In this release, we've moved the `rate` setting to these plugins specifically, preventing confusion and keeping configurations cleaner.
 
-![rate option moved to be a plugin setting](/blog/images/word-image-23844-4.png)
+![rate option moved to be a plugin setting](/web/blog/images/word-image-23844-4.png)
 
 The `rate` option defined as a global property is ignored.
 
@@ -81,7 +81,7 @@ The `rate` option defined as a global property is ignored.
 
 To unify all commands related to managing configuration, we renamed the `preset get` command to `config get`. We also moved the functionality of the `config` command, which opens the currently used configuration file in a code editor, to `config open`.
 
-![Dev Proxy config options](/blog/images/word-image-23844-5.png)
+![Dev Proxy config options](/web/blog/images/word-image-23844-5.png)
 
 ## JSON schema support for plugin configurations
 
@@ -89,7 +89,7 @@ To improve IntelliSense and real-time feedback, we're introducing JSON schemas f
 
 In the future versions of Dev Proxy, we'll add validating the config based on the provided schemas to let you know as soon as possible if there's something wrong with your configuration.
 
-![Plugin configuration section with a schema reference](/blog/images/word-image-23844-6.png)
+![Plugin configuration section with a schema reference](/web/blog/images/word-image-23844-6.png)
 
 To avoid naming conflicts and align the names, we renamed the previously released schemas for random errors, mock responses and API configuration.
 

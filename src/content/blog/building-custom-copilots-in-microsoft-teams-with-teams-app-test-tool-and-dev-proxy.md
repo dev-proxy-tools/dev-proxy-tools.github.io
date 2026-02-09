@@ -14,11 +14,11 @@ Many organizations are building custom copilots grounded in organizational data 
 
 The [ChatGPT + Enterprise data with Azure OpenAI and AI Search](https://github.com/Azure-Samples/azure-search-openai-demo) sample is an example of how to implement RAG on the Microsoft Cloud.
 
-![Retrieval Augmented Generation (RAG) architecture](/blog/images/word-image-20254-1.png)
+![Retrieval Augmented Generation (RAG) architecture](/web/blog/images/word-image-20254-1.png)
 
 Employees use natural language to ask questions and receive answers based on data from a fictitious company called Contoso Electronics. Allowing them to ask questions about the benefits, internal policies, as well as job descriptions and roles.
 
-![Chat interface in the web application](/blog/images/chat-screen.png)
+![Chat interface in the web application](/web/blog/images/chat-screen.png)
 
 Requests are sent to a back-end API when employees submit queries. Answers are returned in natural language along with document citations and follow-up questions in the response which are displayed in the user interface.
 
@@ -30,7 +30,7 @@ In the [ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search in Micr
 
 The bot sends requests to the same back-end API to return answers from the LLM.
 
-![Chat interface in Microsoft Teams bot](/blog/images/chat-with-your-data-bot-in-microsoft-teams.png)
+![Chat interface in Microsoft Teams bot](/web/blog/images/chat-with-your-data-bot-in-microsoft-teams.png)
 
 The answers, along with document citations and action buttons, are returned in Adaptive Cards. In addition, follow-up questions are displayed as suggested actions.
 
@@ -38,7 +38,7 @@ The answers, along with document citations and action buttons, are returned in A
 
 To run and develop the two sample projects that we've just seen, you need to setup and configure several cloud services, as well as have access to a Microsoft 365 tenant.
 
-![Microsoft Teams bot with RAG architecture](/blog/images/a-diagram-of-a-software-company-description-autom.png)
+![Microsoft Teams bot with RAG architecture](/web/blog/images/a-diagram-of-a-software-company-description-autom.png)
 
 During development this can be inefficient, in both time and money. It takes time to get everything in place and each request you send to the LLM incurs a cost as does keeping these services up and running.
 
@@ -57,11 +57,11 @@ With Teams App Test Tool and Dev Proxy, you simulate only the dependencies you n
 
 With Teams App Test Tool, you remove the dependency on a Microsoft 365 tenant, bot services, Microsoft Entra, and Dev Tunnels, whilst using real responses from the LLM.
 
-![Removing dependencies with Teams App Test Tool](/blog/images/word-image-20254-6.png)
+![Removing dependencies with Teams App Test Tool](/web/blog/images/word-image-20254-6.png)
 
 By adding Dev Proxy, you remove the dependency on all cloud services and APIs, whilst using mocked responses to simulate the LLM response without changing any of your app code.
 
-![Removing dependencies with Dev Proxy](/blog/images/word-image-20254-7.png)
+![Removing dependencies with Dev Proxy](/web/blog/images/word-image-20254-7.png)
 
 When you are ready to test against the live LLM, simply turn off Dev Proxy.
 
@@ -80,11 +80,11 @@ To run and test the bot locally using Teams App Test Tool and Dev Proxy:
 
 In the Test Tool, select the "What is included in my Northwind heal…" button to send a message in the bot chat and issue a request to the back-end API.
 
-![Teams App Test Tool displaying the bot welcome message and answer to a question as Adaptive Cards](/blog/images/a-screenshot-of-a-computer-description-automatica.png)
+![Teams App Test Tool displaying the bot welcome message and answer to a question as Adaptive Cards](/web/blog/images/a-screenshot-of-a-computer-description-automatica.png)
 
 In the Dev Proxy process output, you can see that the request to the back-end API is intercepted, a delay is added to simulate real-world latency, and the API response is mocked.
 
-![Dev Proxy running in a terminal window inside Visual Studio Code, displaying a delayed mocked request to a backend API](/blog/images/a-screenshot-of-a-computer-description-automatica-1.png)
+![Dev Proxy running in a terminal window inside Visual Studio Code, displaying a delayed mocked request to a backend API](/web/blog/images/a-screenshot-of-a-computer-description-automatica-1.png)
 
 ## Summary
 

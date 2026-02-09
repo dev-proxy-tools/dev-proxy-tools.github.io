@@ -33,7 +33,7 @@ When you build apps connected to Azure OpenAI, often, only a portion of the app 
 
 In this version, we introduce the new OpenAIMockResponsePlugin that allows you to simulate Azure OpenAI- and OpenAI API responses, using Ollama and a local language model.
 
-![Dev Proxy simulating Azure OpenAI API responses using a local language model running on Ollama](/blog/images/word-image-21968-1.png)
+![Dev Proxy simulating Azure OpenAI API responses using a local language model running on Ollama](/web/blog/images/word-image-21968-1.png)
 
 To learn more about simulating Azure OpenAI- and OpenAI APIs, see the [documentation](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-azure-openai).
 
@@ -43,7 +43,7 @@ HTTP files are a very lightweight and convenient way to test APIs. Using HTTP fi
 
 In this version, we introduce a new plugin that generates an HTTP file with the requests that Dev Proxy intercepted.
 
-![An HTTP file that Dev Proxy generated based on API requests that it intercepted.](/blog/images/Screenshot-2024-06-25-105008.png)
+![An HTTP file that Dev Proxy generated based on API requests that it intercepted.](/web/blog/images/Screenshot-2024-06-25-105008.png)
 
 HTTP files are a great companion when building apps. They allow you to easily run specific API requests without having to debug the whole app and step through its code.
 
@@ -75,7 +75,7 @@ APIs are the gateway to data and insights in your organization. To benefit from 
 
 Generating OpenAPI specs is one of the first features that benefits from integrating Dev Proxy with local language models. Using a language model, you can have Dev Proxy generate OpenAPI specs that are not only more readable for you and your colleagues but also for other LLMs!
 
-![Comparison of an OpenAPI spec that Dev Proxy generated without (left) and with (right) a local language model](/blog/images/word-image-21968-3.png)
+![Comparison of an OpenAPI spec that Dev Proxy generated without (left) and with (right) a local language model](/web/blog/images/word-image-21968-3.png)
 
 ### Exclude OPTIONS request
 

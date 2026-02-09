@@ -24,7 +24,7 @@ Spend more time on building your app and less on plumbing. Make your apps more r
 
 Starting from this version, you can configure Dev Proxy to combine rate limiting with mock responses. This means, that when testing how your app handles rate limiting, you won't be calling your API and incurring unnecessary load. This combination is invaluable to verify if your rate limiting code is working as expected.
 
-![Dev Proxy simulating rate limiting using mock API responses](/blog/images/01.png)
+![Dev Proxy simulating rate limiting using mock API responses](/web/blog/images/01.png)
 
 Learn more about [rate limiting](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/concepts/what-is-rate-limiting).
 
@@ -34,7 +34,7 @@ OpenAPI specs allow you to benefit from the latest investments in the API space.
 
 Dev Proxy now allows you to generate an OpenAPI spec based on the requests intercepted by the proxy. All you need to do is to start your app, have it call your API, and Dev Proxy will generate an OpenAPI spec for you from the requests it intercepted!
 
-![Dev Proxy generating an OpenAPI spec from the requests it intercepted](/blog/images/word-image-17765-2.png)
+![Dev Proxy generating an OpenAPI spec from the requests it intercepted](/web/blog/images/word-image-17765-2.png)
 
 Learn more about [generating OpenAPI specs using Dev Proxy](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/generate-openapi-spec).
 
@@ -42,7 +42,7 @@ Learn more about [generating OpenAPI specs using Dev Proxy](https://learn.micros
 
 When building apps, you often interact with backend APIs. Sometimes, these APIs aren't yet available, or other teams are updating them to meet the latest requirements. To avoid waiting, you typically create a mock API that returns the data you need. While this approach unblocks you, it requires you to spend time on building an API that you eventually replace with the real one. To avoid wasting time, you can now use Dev Proxy to simulate a CRUD API and speed up development. All you need is a data set that you want to expose as an API and let Dev Proxy do the rest!
 
-![Dev Proxy simulating a CRUD API for development](/blog/images/word-image-17765-3.png)
+![Dev Proxy simulating a CRUD API for development](/web/blog/images/word-image-17765-3.png)
 
 Learn more about [simulating CRUD APIs with Dev Proxy](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-crud-api).
 
@@ -56,7 +56,7 @@ We regularly publish Dev Proxy presets which configure proxy for specific use ca
 
 To make it easier for you to use these presets, you can now use the `devproxy preset get` command, to download and unzip the preset. All you need is the preset ID which you find on the preset's page in the sample gallery.
 
-![Easily downloading Dev Proxy presets from the sample gallery](/blog/images/02.png)
+![Easily downloading Dev Proxy presets from the sample gallery](/web/blog/images/02.png)
 
 We hope that you find presets helpful and if you've got your own presets that you'd like to share with others, [submit them to the gallery](https://github.com/pnp/proxy-samples/blob/main/CONTRIBUTING.md)!
 
@@ -66,7 +66,7 @@ We've slightly changed the shape of mocks that we use in Dev Proxy. As we extend
 
 The new structure defines a request and response object and a collection of header objects.
 
-![New Dev Proxy mock structure](/blog/images/word-image-17765-5.png)
+![New Dev Proxy mock structure](/web/blog/images/word-image-17765-5.png)
 
 We've already updated all samples in the sample gallery to reflect this new structure. If you have your own mocks, you can convert them to the new format using a [script](https://github.com/waldekmastykarz/convert-devproxy-mocks).
 
@@ -78,7 +78,7 @@ Dev Proxy and its plugins use JSON files to define their configuration. To help 
 
 Recently, we've published [our new docs on Microsoft Learn](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/overview). We've included the reference content we had on our GitHub Wiki and extended it with additional conceptual docs, all to help you build more robust apps and get more out of Dev Proxy. Check them out and let us know how we can make them better.
 
-![New Dev Proxy docs on Microsoft Learn](/blog/images/04.png)
+![New Dev Proxy docs on Microsoft Learn](/web/blog/images/04.png)
 
 ## There's more
 
