@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const latestPost = posts[0];
+const olderPosts = posts.slice(1);
+---
+
+<Layout title="Blog" description="Dev Proxy release announcements and updates">
+
+  <!-- Hero header -->
+  <section class="pt-24 pb-16 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">From the Team</p>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">Blog</h1>
+      <p class="text-lg max-w-2xl mx-auto" style="color: var(--text-muted);">
+        Release announcements, how-to guides, and insights from the Dev Proxy team.
+      </p>
+    </div>
+  </section>
+
+  <!-- Latest post — featured card -->
+  {latestPost && (
+    <section class="px-4 pb-16">
+      <div class="max-w-5xl mx-auto">
+        <a
+          href={`${import.meta.env.BASE_URL}blog/${latestPost.id.replace(/\.md$/, '')}/`}
+          class="group block rounded-2xl border overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)]"
+          style="background: var(--bg-secondary); border-color: var(--border-primary);"
+        >
+          <div class="p-8 md:p-12">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-purple-600/20 text-purple-400">Latest</span>
+              {latestPost.data.tags.map((tag) => (
+                <span class="text-xs px-3 py-1 rounded-full" style="background: var(--bg-tertiary); color: var(--text-faint);">{tag}</span>
+              ))}
+            </div>
+            <h2 class="text-2xl md:text-4xl font-bold mb-4 group-hover:text-purple-400 transition-colors leading-tight">
+              {latestPost.data.title}
+            </h2>
+            <p class="text-lg mb-6 leading-relaxed max-w-3xl" style="color: var(--text-muted);">
+              {latestPost.data.description}
+            </p>
+            <div class="flex items-center gap-3 text-sm" style="color: var(--text-faint);">
+              <time datetime={latestPost.data.date.toISOString()}>
+                {latestPost.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <span>&middot;</span>
+              <span>{latestPost.data.author}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- All other posts -->
+  {olderPosts.length > 0 && (
+    <section class="px-4 pb-24">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-6">
+          {olderPosts.map((post) => (
+            <a
+              href={`${import.meta.env.BASE_URL}blog/${post.id.replace(/\.md$/, '')}/`}
+              class="group block rounded-2xl border p-6 md:p-8 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)] flex flex-col"
+              style="background: var(--bg-secondary); border-color: var(--border-primary);"
+            >
+              <div class="flex items-center gap-2 mb-4">
+                {post.data.tags.map((tag) => (
+                  <span class="text-xs px-2.5 py-1 rounded-full" style="background: var(--bg-tertiary); color: var(--text-faint);">{tag}</span>
+                ))}
+              </div>
+              <h2 class="text-xl font-semibold mb-3 group-hover:text-purple-400 transition-colors leading-snug">
+                {post.data.title}
+              </h2>
+              <p class="text-sm mb-4 flex-1 leading-relaxed" style="color: var(--text-muted);">
+                {post.data.description}
+              </p>
+              <div class="flex items-center gap-3 text-xs mt-auto pt-4 border-t" style="color: var(--text-faint); border-color: var(--border-primary);">
+                <time datetime={post.data.date.toISOString()}>
+                  {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+                <span>&middot;</span>
+                <span>{post.data.author}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {posts.length === 0 && (
+    <section class="px-4 pb-24">
+      <p class="text-center py-12" style="color: var(--text-faint);">No blog posts yet. Check back soon!</p>
+    </section>
+  )}
+
+</Layout>

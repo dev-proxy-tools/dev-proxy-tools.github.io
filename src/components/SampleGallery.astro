@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  samples: CollectionEntry<'samples'>[];
+}
+
+const { samples } = Astro.props;
+---
+
+<div id="sample-gallery">
+  <!-- Search bar -->
+  <div class="mb-10 max-w-xl mx-auto">
+    <div class="relative">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none" style="color: var(--text-faint);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <input
+        type="text"
+        id="sample-search"
+        placeholder="Search samples..."
+        class="w-full pl-12 pr-4 py-4 border rounded-2xl placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-all duration-300 text-base" style="background: var(--bg-secondary); border-color: var(--border-secondary); color: var(--text-primary);"
+      />
+    </div>
+  </div>
+
+  <p id="sample-count" class="text-sm mb-8 text-center" style="color: var(--text-faint);">
+    {samples.length} samples
+  </p>
+
+  <div id="sample-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {samples.map((sample) => (
+      <a
+        href={`${import.meta.env.BASE_URL}samples/${sample.id.replace(/\.md$/, '')}/`}
+        class="sample-card group rounded-2xl border transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)] flex flex-col overflow-hidden"
+        style="background: var(--bg-secondary); border-color: var(--border-primary);"
+        data-title={sample.data.title.toLowerCase()}
+        data-description={sample.data.shortDescription.toLowerCase()}
+        data-authors={sample.data.authors.map(a => a.name.toLowerCase()).join(' ')}
+      >
+        {sample.data.thumbnails?.[0] && (
+          <div class="overflow-hidden">
+            <img
+              src={sample.data.thumbnails[0].url}
+              alt={sample.data.thumbnails[0].alt}
+              class="w-full h-44 object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        )}
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="text-lg font-semibold mb-4 group-hover:text-purple-400 transition-colors leading-snug">{sample.data.title}</h3>
+          <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color: var(--border-primary);">
+            <div class="flex -space-x-2">
+              {sample.data.authors.map((author) => (
+                <img
+                  src={author.pictureUrl}
+                  alt={author.name}
+                  title={author.name}
+                  class="w-7 h-7 rounded-full border-2 transition-transform duration-200 hover:scale-110"
+                  style="border-color: var(--bg-secondary);"
+                  loading="lazy"
+                />
+              ))}
+            </div>
+            <span class="text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm">&rarr;</span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <p id="no-results" class="text-center py-16 hidden" style="color: var(--text-faint);">
+    No samples match your search.
+  </p>
+</div>
+
+<script>
+  const searchInput = document.getElementById('sample-search') as HTMLInputElement;
+  const cards = document.querySelectorAll('.sample-card') as NodeListOf<HTMLElement>;
+  const countEl = document.getElementById('sample-count')!;
+  const noResults = document.getElementById('no-results')!;
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const title = card.dataset.title || '';
+      const description = card.dataset.description || '';
+      const authors = card.dataset.authors || '';
+      const matches = !query || title.includes(query) || description.includes(query) || authors.includes(query);
+      card.style.display = matches ? '' : 'none';
+      if (matches) visible++;
+    });
+
+    countEl.textContent = `${visible} sample${visible !== 1 ? 's' : ''}`;
+    noResults.classList.toggle('hidden', visible > 0);
+  });
+</script>

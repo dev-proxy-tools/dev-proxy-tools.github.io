@@ -1,0 +1,20 @@
+{
+  "name": "web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "fetch-samples": "npx tsx scripts/fetch-samples.ts",
+    "dev": "npm run fetch-samples && astro dev",
+    "build": "npm run fetch-samples && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}

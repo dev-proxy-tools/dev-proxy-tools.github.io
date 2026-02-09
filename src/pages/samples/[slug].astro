@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const samples = await getCollection('samples');
+  return samples.map((sample) => ({
+    params: { slug: sample.id.replace(/\.md$/, '') },
+    props: { sample },
+  }));
+}
+
+const { sample } = Astro.props;
+const { data } = sample;
+const { Content } = await render(sample);
+---
+
+<Layout title={data.title} description={data.shortDescription}>
+  <section class="pt-16 pb-24 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Back link -->
+      <a href={`${import.meta.env.BASE_URL}samples/`} class="group inline-flex items-center gap-1.5 text-sm mb-10 transition-colors text-purple-400 hover:text-purple-300">
+        <span class="inline-block transition-transform duration-200 group-hover:-translate-x-1">&larr;</span>
+        <span>All samples</span>
+      </a>
+
+      <!-- Header -->
+      <header class="mb-10">
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-6">{data.title}</h1>
+        <p class="text-lg leading-relaxed mb-8" style="color: var(--text-muted);">{data.shortDescription}</p>
+
+        <!-- Authors -->
+        <div class="flex items-center gap-4 mb-8">
+          <div class="flex -space-x-2">
+            {data.authors.map((author) => (
+              <a href={`https://github.com/${author.gitHubAccount}`} target="_blank" rel="noopener" title={author.name} class="transition-transform duration-200 hover:scale-110 hover:z-10 relative">
+                <img
+                  src={author.pictureUrl}
+                  alt={author.name}
+                  class="w-10 h-10 rounded-full border-2" style="border-color: var(--bg-primary);"
+                />
+              </a>
+            ))}
+          </div>
+          <span class="text-sm" style="color: var(--text-faint);">
+            {data.authors.map(a => a.name).join(', ')}
+          </span>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="flex gap-3 flex-wrap">
+          <a
+            href={data.downloadUrl}
+            target="_blank"
+            rel="noopener"
+            class="group px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] text-sm"
+          >
+            Download <span class="inline-block transition-transform duration-300 group-hover:translate-x-0.5">&darr;</span>
+          </a>
+          <a
+            href={data.url}
+            target="_blank"
+            rel="noopener"
+            class="px-6 py-3 border font-semibold rounded-full transition-all duration-300 hover:border-purple-500 text-sm"
+            style="border-color: var(--border-secondary); color: var(--text-secondary);"
+          >
+            View on GitHub
+          </a>
+        </div>
+      </header>
+
+      <!-- Divider -->
+      <div class="w-12 h-0.5 bg-purple-500/40 rounded mb-12"></div>
+
+      <!-- README content -->
+      <div class="prose-content">
+        <Content />
+      </div>
+
+      <!-- References -->
+      {data.references.length > 0 && (
+        <div class="mt-16 mb-8">
+          <h2 class="text-xl font-bold mb-6">References</h2>
+          <div class="grid md:grid-cols-2 gap-4">
+            {data.references.map((ref) => (
+              <a
+                href={ref.url}
+                target="_blank"
+                rel="noopener"
+                class="group block rounded-2xl border p-5 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)]"
+                style="background: var(--bg-secondary); border-color: var(--border-primary);"
+              >
+                <div class="text-sm font-medium group-hover:text-purple-400 transition-colors flex items-center gap-1">
+                  {ref.name}
+                  <span class="opacity-60">↗</span>
+                </div>
+                <div class="text-xs mt-1.5 leading-relaxed" style="color: var(--text-muted);">{ref.description}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Footer with dates -->
+      <footer class="mt-16 pt-8 border-t flex items-center justify-between flex-wrap gap-4" style="border-color: var(--border-primary);">
+        <div class="flex gap-6 text-xs" style="color: var(--text-faint);">
+          <span>Created {new Date(data.creationDateTime).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>Updated {new Date(data.updateDateTime).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+        </div>
+        <a href={`${import.meta.env.BASE_URL}samples/`} class="group inline-flex items-center gap-1.5 text-sm transition-colors text-purple-400 hover:text-purple-300">
+          <span class="inline-block transition-transform duration-200 group-hover:-translate-x-1">&larr;</span>
+          <span>All samples</span>
+        </a>
+      </footer>
+
+    </div>
+  </section>
+</Layout>

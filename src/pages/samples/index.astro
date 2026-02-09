@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SampleGallery from '../../components/SampleGallery.astro';
+import { getCollection } from 'astro:content';
+
+const samples = (await getCollection('samples')).sort((a, b) =>
+  new Date(b.data.updateDateTime).valueOf() - new Date(a.data.updateDateTime).valueOf()
+);
+
+function sampleSlug(id: string): string {
+  return id.replace(/\.md$/, '');
+}
+---
+
+<Layout title="Sample Gallery" description="Browse and download community-contributed Dev Proxy samples">
+
+  <!-- Hero header -->
+  <section class="pt-24 pb-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Community Contributed</p>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">Sample Gallery</h1>
+      <p class="text-lg max-w-2xl mx-auto" style="color: var(--text-muted);">
+        Ready-to-use Dev Proxy configurations and presets from the community. Browse, search, and download from
+        <a href="https://github.com/pnp/proxy-samples" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 transition-colors">pnp/proxy-samples</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="px-4 pb-24">
+    <div class="max-w-6xl mx-auto">
+      <SampleGallery samples={samples} />
+    </div>
+  </section>
+
+</Layout>

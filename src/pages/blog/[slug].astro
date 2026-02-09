@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.md$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+// Estimate reading time (~200 words per minute)
+const wordCount = post.body?.split(/\s+/).length ?? 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <article class="pt-16 pb-24 px-4">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Back link -->
+      <a href={`${import.meta.env.BASE_URL}blog/`} class="group inline-flex items-center gap-1.5 text-sm mb-10 transition-colors text-purple-400 hover:text-purple-300">
+        <span class="inline-block transition-transform duration-200 group-hover:-translate-x-1">&larr;</span>
+        <span>All posts</span>
+      </a>
+
+      <!-- Header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-2 mb-5">
+          {post.data.tags.map((tag) => (
+            <span class="text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-purple-600/20 text-purple-400">{tag}</span>
+          ))}
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-[1.1] mb-6">{post.data.title}</h1>
+        <div class="flex items-center gap-3 text-sm" style="color: var(--text-faint);">
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <span>&middot;</span>
+          <span>{post.data.author}</span>
+          <span>&middot;</span>
+          <span>{readingTime} min read</span>
+        </div>
+      </header>
+
+      <!-- Divider -->
+      <div class="w-12 h-0.5 bg-purple-500/40 rounded mb-12"></div>
+
+      <!-- Content -->
+      <div class="prose-content">
+        <Content />
+      </div>
+
+      <!-- Post footer -->
+      <footer class="mt-16 pt-8 border-t" style="border-color: var(--border-primary);">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <a href={`${import.meta.env.BASE_URL}blog/`} class="group inline-flex items-center gap-1.5 text-sm transition-colors text-purple-400 hover:text-purple-300">
+            <span class="inline-block transition-transform duration-200 group-hover:-translate-x-1">&larr;</span>
+            <span>All posts</span>
+          </a>
+          <a
+            href="https://github.com/dotnet/dev-proxy"
+            target="_blank"
+            rel="noopener"
+            class="text-sm transition-colors hover:text-purple-400"
+            style="color: var(--text-faint);"
+          >
+            Star on GitHub &rarr;
+          </a>
+        </div>
+      </footer>
+
+    </div>
+  </article>
+</Layout>

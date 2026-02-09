@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-purple-400: #c084fc;
+  --color-purple-500: #a855f7;
+  --color-purple-600: #9333ea;
+}
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-tertiary: #e5e7eb;
+  --bg-nav: rgba(255, 255, 255, 0.8);
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-faint: #9ca3af;
+  --border-primary: #e5e7eb;
+  --border-secondary: #d1d5db;
+  --code-bg: #f3f4f6;
+  --code-border: #e5e7eb;
+  --code-text: #7c3aed;
+  --code-block-text: #374151;
+}
+
+.dark {
+  --bg-primary: #030712;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+  --bg-nav: rgba(3, 7, 18, 0.8);
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-faint: #6b7280;
+  --border-primary: #1f2937;
+  --border-secondary: #374151;
+  --code-bg: #111827;
+  --code-border: #1f2937;
+  --code-text: #d8b4fe;
+  --code-block-text: #d1d5db;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.prose-content {
+  max-width: none;
+
+  h1 { font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; }
+  h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+  h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+
+  p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 1rem; }
+
+  a { color: #c084fc; }
+  a:hover { color: #d8b4fe; }
+
+  strong { color: var(--text-primary); }
+
+  ul, ol { color: var(--text-secondary); margin-bottom: 1rem; padding-left: 1.5rem; }
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+  li { margin-bottom: 0.25rem; }
+  li > ul, li > ol { margin-top: 0.25rem; margin-bottom: 0; }
+
+  img { border-radius: 0.75rem; border: 1px solid var(--border-primary); margin: 1.5rem 0; }
+
+  table { width: 100%; font-size: 0.875rem; color: var(--text-secondary); }
+  thead { border-bottom: 1px solid var(--border-secondary); }
+  th { text-align: left; padding: 0.5rem 0.75rem; }
+  tr { border-bottom: 1px solid var(--border-primary); }
+  td { padding: 0.5rem 0.75rem; }
+
+  pre { background: var(--code-bg); border: 1px solid var(--code-border); border-radius: 0.5rem; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+  code { color: var(--code-text); }
+  pre code { color: var(--code-block-text); }
+
+  blockquote { border-left: 4px solid #a855f7; padding-left: 1rem; color: var(--text-muted); }
+
+  kbd { background: var(--bg-tertiary); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem; border: 1px solid var(--border-secondary); }
+}

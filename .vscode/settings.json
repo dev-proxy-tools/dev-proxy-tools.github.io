@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python3 -c \"\nimport os, re, glob\n\nblog_dir = '/Users/garrytrinder/repos/blog-backup'\nfiles = sorted\\(glob\\.glob\\(os\\.path\\.join\\(blog_dir, '\\*\\.md'\\)\\)\\)\n\nfor f in files:\n    with open\\(f\\) as fh:\n        content = fh\\.read\\(\\)\n    imgs = re\\.findall\\(r'!\\\\\\[\\(\\[\\^\\\\\\]\\]\\*\\)\\\\\\]\\\\\\(\\(\\[\\^\\)\\]\\+\\)\\\\\\)', content\\)\n    fname = os\\.path\\.basename\\(f\\)\n    if imgs:\n        print\\(f'\\{fname\\}:'\\)\n        for alt, url in imgs:\n            print\\(f'  - !\\[\\{alt\\}\\]\\(\\{url\\}\\)'\\)\n    else:\n        print\\(f'\\{fname\\}: \\(no images\\)'\\)\n\"\n$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
