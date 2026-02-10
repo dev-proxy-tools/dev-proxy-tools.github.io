@@ -25,11 +25,11 @@ When deploying Graph connectors in your organization, you should consider packag
 
 In this release of Dev Proxy, we're excited to ship the ability for you to simulate the Teams Admin Center notification for enabling and disabling Graph connectors. With the new feature, you can test your code locally end to end: from validating the token, to creating the connection with the ticket from the notification. And you can do all of this locally without deploying anything to Microsoft 365!
 
-![Dev Proxy simulating the Teams Admin Center notification for Graph connectors and mocking subsequent requests for validating the token and creating the external connection.](/web/blog/images/word-image-19958-1.png)
+![Dev Proxy simulating the Teams Admin Center notification for Graph connectors and mocking subsequent requests for validating the token and creating the external connection.](/blog/images/word-image-19958-1.png)
 
 We not only simulate the Teams Admin Center notification. We also check if your code correctly implements the different steps, like properly responding to the notification request or including the ticket from the notification on the external connection creation request. If we see that one of the required steps is missing or implemented incorrectly, we'll warn you about it. This way you can find potential issues earlier and deploy your Graph connector with confidence.
 
-![Dev Proxy warning about the lack of ticket on the request to create an external connection after receiving a Teams Admin Center notification](/web/blog/images/word-image-19958-2.png)
+![Dev Proxy warning about the lack of ticket on the request to create an external connection after receiving a Teams Admin Center notification](/blog/images/word-image-19958-2.png)
 
 Learn more about [simulating the Teams Admin Center notification for Graph connectors using Dev Proxy](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/mock-teams-admin-center-notification-graph-connectors).
 
@@ -41,7 +41,7 @@ There are [several requirements](https://learn.microsoft.com/graph/connecting-ex
 
 In this version of Dev Proxy, we're introducing a new Graph connector guidance plugin, which checks if your external connection is configured properly for use with Copilot for Microsoft 365. We start with validating if your external connection contains the required semantic labels. If it doesn't, we'll warn you and tell you which labels are missing.
 
-![Dev Proxy showing an error after detecting a missing semantic label in an external connection schema provisioning request.](/web/blog/images/word-image-19958-3.png)
+![Dev Proxy showing an error after detecting a missing semantic label in an external connection schema provisioning request.](/blog/images/word-image-19958-3.png)
 
 We'll be expanding our checks in the future and hope that they'll help you deploy your Graph connectors with confidence.
 
@@ -53,7 +53,7 @@ Many applications these days rely on webhooks. Webhooks are a common way for sys
 
 A common challenge for working with webhooks is simulating the change in the external system that triggers the webhook. In this version of Dev Proxy, we're introducing the MockRequestPlugin that allows you to send a preconfigured notification to your application with a single key press.
 
-![Dev Proxy simulating a webhook notification request to a local API.](/web/blog/images/word-image-19958-4.png)
+![Dev Proxy simulating a webhook notification request to a local API.](/blog/images/word-image-19958-4.png)
 
 By itself, the MockRequestPlugin is a convenient method to send webhook notifications to your app. You can configure the different requests in an easy way in your project and share them with your colleagues. The plugin is also a powerful building block for implementing specialized plugins which encapsulate some additional logic and guidance, such as the one we've just mentioned that simulates Teams Admin Center notifications for Graph connectors.
 
@@ -65,7 +65,7 @@ Over the last year, Dev Proxy evolved into a powerful API simulator that support
 
 To help you document your settings, we now introduce support for including comments in Dev Proxy configuration and plugin files.
 
-![Dev Proxy configuration file with a comment](/web/blog/images/word-image-19958-5.png)
+![Dev Proxy configuration file with a comment](/blog/images/word-image-19958-5.png)
 
 We hope that it'll help you keep relevant notes next to your configuration so that you can easily share it with your colleagues. Oh, and if you happen to use VSCode, use .jsonc as the file extension for your config files. It'll keep VSCode from highlighting comments as errors.
 
@@ -73,7 +73,7 @@ We hope that it'll help you keep relevant notes next to your configuration so th
 
 As we keep extending Dev Proxy with new features, we want to help you get the most out of it. In this version, we extend the UI with a list of hotkeys that you can use with Dev Proxy to invoke its different features.
 
-![Dev Proxy running in the terminal showing its hotkeys](/web/blog/images/word-image-19958-6.png)
+![Dev Proxy running in the terminal showing its hotkeys](/blog/images/word-image-19958-6.png)
 
 ## There's more
 

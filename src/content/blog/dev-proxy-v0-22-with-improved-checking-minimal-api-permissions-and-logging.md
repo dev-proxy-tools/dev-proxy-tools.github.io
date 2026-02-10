@@ -20,7 +20,7 @@ Previously, we introduced the ability to [verify if your app is calling APIs wit
 
 In this release, we extend this feature and introduce a new plugin, named MinimalPermissionsPlugin, that allows you to verify if your app is calling APIs with minimal permissions, without having to use Azure API Center. Instead, you configure the plugin to point to a folder with all API specifications.
 
-![Dev Proxy detecting the use of minimal permissions based on API specs in a local folder](/web/blog/images/word-image-23319-1.png)
+![Dev Proxy detecting the use of minimal permissions based on API specs in a local folder](/blog/images/word-image-23319-1.png)
 
 We recommend that organizations and larger teams continue to use the plugin that integrates with Azure API Center. It allows them to benefit from their centralized API records and use them to verify the use of minimal API permissions. The new plugin is more suited for single developers, single teams and open-source projects that often don't have access to API Center.
 
@@ -30,13 +30,13 @@ Learn more in [Dev Proxy documentation](https://learn.microsoft.com/microsoft-cl
 
 As we're introducing more plugins, we want to help you understand how each plugin you enable in the configuration processes the intercepted request and response. Starting from this version, each logged message begins with the plugin's name. Additionally, we introduce a new message type named skip which shows information about plugins that have not affected the request and the reason why. Using configuration, you can disable showing skip-messages and make the output less verbose.
 
-![Updated Dev Proxy logs showing how each enabled plugin processes the intercepted request](/web/blog/images/word-image-23319-2.png)
+![Updated Dev Proxy logs showing how each enabled plugin processes the intercepted request](/blog/images/word-image-23319-2.png)
 
 ## Improved generating JWT tokens for testing
 
 In the previous version, we introduced the ability to quickly generate JWT tokens for testing. Using the `devproxy jwt create` command you can easily generate a token with specified claims for use with your API.
 
-![JWT token for testing generated using Dev Proxy](/web/blog/images/word-image-23319-3.png)
+![JWT token for testing generated using Dev Proxy](/blog/images/word-image-23319-3.png)
 
 In this version, we extend the feature by allowing you to specify a custom signing key for the generated token. Specifying your own key allows you to validate the token in your code and more easily verify your security-related code.
 

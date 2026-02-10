@@ -22,7 +22,7 @@ In addition to generating OpenAPI specifications from intercepted requests, Dev 
 
 [TypeSpec](https://typespec.io/) is a new way to model APIs and generate code across ecosystems. The more your API evolves, the more benefit you get from using TypeSpec. With this update, you can use Dev Proxy to quickly scaffold TypeSpec definitions from real traffic—helping you get started with API modeling even faster.
 
-![Dev Proxy generates a TypeSpec definition for an API](/web/blog/images/Screenshot-2025-04-29-151434.png)
+![Dev Proxy generates a TypeSpec definition for an API](/blog/images/Screenshot-2025-04-29-151434.png)
 
 Generating TypeSpec definitions using Dev Proxy works the same way as generating OpenAPI specs. Also here, for the best results, we suggest that you use a language model to get more accurate and readable operation descriptions.
 
@@ -42,9 +42,9 @@ For a long time, we've wanted to let you configure Dev Proxy using natural langu
 
 Here are some examples of how you can use our MCP server with the GitHub Copilot agent in Visual Studio Code:
 
-![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating Microsoft Graph behaviors using the Dev Proxy MCP server](/web/blog/images/word-image-24124-2.png)
+![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating Microsoft Graph behaviors using the Dev Proxy MCP server](/blog/images/word-image-24124-2.png)
 
-![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating latency on a public API using the Dev Proxy MCP server](/web/blog/images/word-image-24124-3.png)
+![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating latency on a public API using the Dev Proxy MCP server](/blog/images/word-image-24124-3.png)
 
 If you use Visual Studio Code insiders, you can get our MCP server from an [experimental version of the Dev Proxy Toolkit](https://github.com/garrytrinder/dev-proxy-toolkit/releases/tag/mcp.1). Otherwise, get it from [npm](https://www.npmjs.com/package/@devproxy/mcp) and follow the instructions for your MCP host to use it.
 
@@ -60,7 +60,7 @@ By default, Dev Proxy uses Ollama, but you can specify the [URL](https://learn.m
 
 We've updated our JSON schemas to include descriptions. When editing your Dev Proxy configuration in Visual Studio Code, you'll now see additional information about each property – making it easier to understand each property and configure Dev Proxy correctly.
 
-![Additional information about properties visible thanks to updated schemas](/web/blog/images/word-image-24124-4.png)
+![Additional information about properties visible thanks to updated schemas](/blog/images/word-image-24124-4.png)
 
 ## Improved intercepting URLs and reloading mocks on change
 

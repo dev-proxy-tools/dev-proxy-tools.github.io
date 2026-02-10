@@ -50,9 +50,9 @@ With the advancements in LLMs we've been getting closer and closer to this abili
 
 Here are some examples of how you can use our MCP server with the GitHub Copilot agent in Visual Studio Code:
 
-![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating Microsoft Graph behaviors using the Dev Proxy MCP server](/web/blog/images/word-image-24434-1-2-scaled.png)
+![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating Microsoft Graph behaviors using the Dev Proxy MCP server](/blog/images/word-image-24434-1-2-scaled.png)
 
-![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating latency on a public API using the Dev Proxy MCP server](/web/blog/images/word-image-24434-2-2-scaled.png)
+![GitHub Copilot in Agent mode creating a Dev Proxy configuration for simulating latency on a public API using the Dev Proxy MCP server](/blog/images/word-image-24434-2-2-scaled.png)
 
 If you use Visual Studio Code, you can get our MCP server by installing [Dev Proxy Toolkit](https://aka.ms/devproxy/toolkit) from the extension marketplace. Otherwise, get it from [npm](https://www.npmjs.com/package/@devproxy/mcp) and follow the instructions for your MCP host to use it.
 
@@ -64,13 +64,13 @@ Dev Proxy uses language models to improve some of its features, such as generati
 
 Dev Proxy now exposes the language model prompts used in features like OpenAPI and TypeSpec generation. This gives you full control to tailor prompts when switching models. Our prompts are exposed in the `prompt` folder in Dev Proxy's installation directory. To let you easily test them, we store them as [Prompty](https://prompty.ai/) files.
 
-![Prompty files in Dev Proxy installation directory](/web/blog/images/word-image-24434-3-2-scaled.png)
+![Prompty files in Dev Proxy installation directory](/blog/images/word-image-24434-3-2-scaled.png)
 
 ## Improved logging with logger categories
 
 Debugging just got easier. Dev Proxy now prints the logger category for debug and trace messages, helping you quickly identify where logs originate in the application.
 
-![Dev Proxy logging with logger categories](/web/blog/images/word-image-24434-4-1.png)
+![Dev Proxy logging with logger categories](/blog/images/word-image-24434-4-1.png)
 
 ## Certificate cleanup on uninstall (Windows)
 

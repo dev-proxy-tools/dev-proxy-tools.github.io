@@ -22,19 +22,19 @@ In this release, we're introducing the ability to use Dev Proxy and dev tunnels 
 
 Typically, when you integrate an API with a cloud service, the service calls the API directly server-side. If you want to inspect the request, you need access to the monitoring system behind the cloud API.
 
-![Cloud service calling API directly](/web/blog/images/word-image-23490-1.png)
+![Cloud service calling API directly](/blog/images/word-image-23490-1.png)
 
 By combining Dev Proxy and dev tunnels, you can route cloud API request through your machine and inspect them, significantly simplifying debugging.
 
-![Dev Proxy and dev tunnels routing cloud API requests](/web/blog/images/word-image-23490-2.png)
+![Dev Proxy and dev tunnels routing cloud API requests](/blog/images/word-image-23490-2.png)
 
 Rather than calling the cloud API directly, the cloud service calls a dev tunnel running on your machine, which passes the request to Dev Proxy which passes it to the cloud service and returns its response to the cloud service.
 
-![Dev Proxy and dev tunnels handling a cloud API request](/web/blog/images/word-image-23490-3.png)
+![Dev Proxy and dev tunnels handling a cloud API request](/blog/images/word-image-23490-3.png)
 
 You can inspect all information about the API request using Chrome Dev Tools:
 
-![Chrome Dev Tools showing API request details](/web/blog/images/word-image-23490-4.png)
+![Chrome Dev Tools showing API request details](/blog/images/word-image-23490-4.png)
 
 We believe that this feature is a must-have in every developer's toolkit to simplify integrating APIs with cloud services.
 

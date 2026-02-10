@@ -71,7 +71,7 @@ When working with APIs secured with OAuth2, you often need an access token to ca
 
 To help you create JWT tokens for testing, we introduce the `jwt create` command. To create a JWT token, in the command line run: `devproxy jwt create`. The command generates a JWT token with default values programmed in Dev Proxy.
 
-![JWT token for testing generated using Dev Proxy](/web/blog/images/word-image-23046-2.png)
+![JWT token for testing generated using Dev Proxy](/blog/images/word-image-23046-2.png)
 
 To specify custom values and claims, use the command's arguments. For more information on what's possible, see the [command's documentation](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/technical-reference/jwt-create).
 
@@ -81,7 +81,7 @@ Dev Proxy Toolkit is a Visual Studio Code extension that makes it easy to create
 
 In this version, we've included the ability for you to start and control Dev Proxy from Visual Studio Code.
 
-![Dev Proxy Toolkit in VS Code](/web/blog/images/word-image-23046-3.png)
+![Dev Proxy Toolkit in VS Code](/blog/images/word-image-23046-3.png)
 
 We've made it easy for you to interact with Dev Proxy using global commands, or editor actions. Editor actions appear when you open a Dev Proxy configuration file.
 
@@ -120,11 +120,11 @@ In the next version of Dev Proxy, we're going to introduce a new plugin that all
 
 As we're introducing more plugins, we want to help you understand how each plugin you enable in the configuration processes the intercepted request and response. Starting from the next version, [each logged message will begin with the plugin's name](https://github.com/microsoft/dev-proxy/pull/890). Additionally, we'll introduce a new message type named skip which shows information about plugins that have not affected the request and the reason why. Using configuration, you'll be able to disable showing skip-messages.
 
-![Updated Dev Proxy logs showing how each enabled plugin processes the intercepted request](/web/blog/images/word-image-23046-4.png)
+![Updated Dev Proxy logs showing how each enabled plugin processes the intercepted request](/blog/images/word-image-23046-4.png)
 
 ## Dev Proxy Toolkit pre-release
 
-![Dev Proxy Toolkit pre-release](/web/blog/images/word-image-23046-5.png)
+![Dev Proxy Toolkit pre-release](/blog/images/word-image-23046-5.png)
 
 We will be releasing pre-release versions of the Dev Proxy Toolkit designed to be used with the latest Dev Proxy Beta releases. Try the latest features, before we release them.
 

@@ -35,7 +35,7 @@ The new `LanguageModelFailurePlugin` helps you test how your application handles
 
 Using this plugin allows you to verify your application's error handling and user experience when AI responses are unreliable.
 
-![Dev Proxy simulating a language model failure when calling Ollama](/web/blog/images/LanguageModelFailurePlugin.png)
+![Dev Proxy simulating a language model failure when calling Ollama](/blog/images/LanguageModelFailurePlugin.png)
 
 Learn more about [testing your app with language model failures](https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/test-my-app-with-language-model-failures).
 
@@ -45,7 +45,7 @@ When you integrate language models in your applications, you're often bound by l
 
 The `LanguageModelRateLimitingPlugin` extends our support for simulating rate limits by simulating token-based throttling that mirrors how LLM providers actually implement rate limits:
 
-![Dev Proxy simulating exceeding a token limit for an LLM request](/web/blog/images/LanguageModelRateLimitingPlugin.png)
+![Dev Proxy simulating exceeding a token limit for an LLM request](/blog/images/LanguageModelRateLimitingPlugin.png)
 
 Using the plugin, you can configure different limits for input and completion token and the timeframe for which those limits apply allowing you to realistically simulate the limits of your language model host.
 

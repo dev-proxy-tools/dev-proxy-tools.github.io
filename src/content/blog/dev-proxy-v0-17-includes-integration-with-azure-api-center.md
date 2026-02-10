@@ -23,7 +23,7 @@ Achieve more with APIs in your organization. We're excited to share with you a n
 
 To help you onboard your APIs to API Center, we're excited to announce the new ApiCenterOnboardingPlugin. The plugin allows you to connect Dev Proxy to your API Center instance. When Dev Proxy intercepts an API request, it'll compare if the API is registered in API Center. If it's not registered, it'll show you which endpoints and operations are not registered. Optionally, it'll also create a new API with all discovered endpoints and operations.
 
-![Dev Proxy showing a list of APIs used in an app, and which aren't registered in API Center.](/web/blog/images/Screenshot-2024-04-23-204100.png)
+![Dev Proxy showing a list of APIs used in an app, and which aren't registered in API Center.](/blog/images/Screenshot-2024-04-23-204100.png)
 
 Using Dev Proxy to detect and onboard APIs used in your applications to API Center saves you time and helps you quickly get insights into what APIs are actually used in your organization.
 
@@ -35,7 +35,7 @@ API Center lets you track APIs used in your organization throughout their whole 
 
 To get the most out of your apps, you want them to use the latest production versions of the available APIs. To help you detect if that's indeed the case, we're excited to introduce the new ApiCenterProductionVersionPlugin. The plugin connects Dev Proxy to your API Center instance. For every recorded API request, the plugin checks if it matches a production version of the API. When the API request matches a non-production API, the plugin not only warns you about it, but also recommends upgrading to a production version!
 
-![Dev Proxy warning of non-production APIs used in an app and suggesting their production equivalents as listed in API Center.](/web/blog/images/Screenshot-2024-04-23-203919.png)
+![Dev Proxy warning of non-production APIs used in an app and suggesting their production equivalents as listed in API Center.](/blog/images/Screenshot-2024-04-23-203919.png)
 
 Using Dev Proxy, you can easily ensure that your apps use production APIs which are governed by SLAs and actively managed. This makes your apps more robust and reliable.
 
@@ -49,7 +49,7 @@ In this release we extended the existing MockResponsePlugin with the ability to 
 
 To create a mock response for a request matching it request body, use the new bodyFragment property.
 
-![The new bodyFragment property that allows you to match mock responses based on request body.](/web/blog/images/word-image-20719-3.png)
+![The new bodyFragment property that allows you to match mock responses based on request body.](/blog/images/word-image-20719-3.png)
 
 When finding the matching mock response, the MockResponsePlugin will check if the request body contains the specified fragment and return the specified mock response if it does.
 
