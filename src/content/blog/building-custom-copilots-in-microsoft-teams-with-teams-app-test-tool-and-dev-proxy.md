@@ -4,6 +4,7 @@ description: "Custom copilots are AI assistants that have been tailored to meet 
 date: 2024-04-07
 author: "Garry Trinder, Waldek Mastykarz"
 tags: ["tutorial"]
+image: "/blog/images/og-image-building-custom-copilots-in-microsoft-teams-with-teams-app-test-tool-and-dev-proxy.jpg"
 ---
 
 Custom copilots are AI assistants that have been tailored to meet the specific needs of an organization. Microsoft Teams is where employees communicate and collaborate across the organization daily. Many organizations are interested in building bots for Microsoft Teams to integrate custom copilots they build. However, building a custom copilot is not trivial. By using Teams App Test Tool, you'll build and test your custom copilots quicker, saving time and money.

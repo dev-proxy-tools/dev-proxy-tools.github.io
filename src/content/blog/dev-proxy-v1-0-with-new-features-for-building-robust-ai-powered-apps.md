@@ -4,6 +4,7 @@ description: "We're excited to announce Dev Proxy v1.0, with new language model-
 date: 2025-08-05
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v1-0-with-new-features-for-building-robust-ai-powered-apps.png"
 ---
 
 We're excited to announce Dev Proxy v1.0, with new language model-specific testing capabilities. This release introduces tools to help developers build more reliable AI-powered applications by simulating real-world scenarios and tracking resource usage.

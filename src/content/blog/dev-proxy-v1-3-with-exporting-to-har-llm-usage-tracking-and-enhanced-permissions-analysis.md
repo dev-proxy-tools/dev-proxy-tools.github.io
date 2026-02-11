@@ -4,6 +4,7 @@ description: "We're thrilled to announce the release of Dev Proxy v1.3.0! This u
 date: 2025-10-30
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v1-3-with-exporting-to-har-llm-usage-tracking-and-enhanced-permissions-analysis.png"
 ---
 
 We're thrilled to announce the release of Dev Proxy v1.3.0! This update introduces two powerful new plugins: HAR file generation for universal debugging and LLM usage tracking for cost optimization, along with enhanced permissions analysis and improved OpenAPI spec generation for complex testing scenarios.

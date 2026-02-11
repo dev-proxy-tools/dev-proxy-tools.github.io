@@ -4,9 +4,12 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = 'Dev Proxy - Simulate API behaviors for testing and development' } = Astro.props;
+const { title, description = 'Dev Proxy - Simulate API behaviors for testing and development', image } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://devproxy.net');
+const ogImage = image ? new URL(image, Astro.site ?? 'https://devproxy.net').href : undefined;
 ---
 
 <!doctype html>
@@ -18,6 +21,19 @@ const { title, description = 'Dev Proxy - Simulate API behaviors for testing and
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Dev Proxy</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} | Dev Proxy`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.href} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={`${title} | Dev Proxy`} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
     <script is:inline>
       (function() {
         const theme = localStorage.getItem('theme');

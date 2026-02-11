@@ -4,6 +4,7 @@ description: "We're excited to announce the release of Dev Proxy v0.25. This upd
 date: 2025-02-27
 author: "Garry Trinder, Waldek Mastykarz"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-25-now-available-with-automatic-shut-down-and-simplified-configuration-management.jpg"
 ---
 
 We're excited to announce the release of Dev Proxy v0.25. This update brings significant improvements to configuration management, plugin support, and usability, making it easier than ever to simulate APIs and test applications under real-world conditions.

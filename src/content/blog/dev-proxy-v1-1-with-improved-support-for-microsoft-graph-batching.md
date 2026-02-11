@@ -4,6 +4,7 @@ description: "We're excited to announce the release of Dev Proxy v1.1. This upda
 date: 2025-09-03
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v1-1-with-improved-support-for-microsoft-graph-batching.png"
 ---
 
 We're excited to announce the release of Dev Proxy v1.1. This update delivers critical fixes for Microsoft Graph batch request simulation, resolves authentication plugin issues, and enhances the MinimalPermissionsGuidancePlugin with new reporting capabilities.

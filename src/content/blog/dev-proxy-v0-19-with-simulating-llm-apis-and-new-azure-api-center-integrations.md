@@ -4,6 +4,7 @@ description: "Achieve more with APIs in your organization. We're excited to shar
 date: 2024-06-25
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-19-with-simulating-llm-apis-and-new-azure-api-center-integrations.jpg"
 ---
 
 Achieve more with APIs in your organization. We're excited to share with you a new version of Dev Proxy that helps you to build robust apps connected to APIs.

@@ -4,6 +4,7 @@ description: "We're excited to announce the release of Dev Proxy v0.27. This ver
 date: 2025-04-29
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-27-with-generating-typespec-files-and-configuring-using-natural-language.jpg"
 ---
 
 We're excited to announce the release of Dev Proxy v0.27. This version focuses on making Dev Proxy even more developer-friendly, helping you generate API specs faster, improving suggestions while editing, and laying the foundation for more flexible AI integrations.

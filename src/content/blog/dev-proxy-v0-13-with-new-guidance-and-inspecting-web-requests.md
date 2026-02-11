@@ -4,6 +4,7 @@ description: "Are you ready to build better apps? We are thrilled to announce th
 date: 2023-12-04
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-13-with-new-guidance-and-inspecting-web-requests.jpg"
 ---
 
 Are you ready to build better apps? We are thrilled to announce the first release of Dev Proxy, formerly known as Microsoft 365 Developer Proxy.

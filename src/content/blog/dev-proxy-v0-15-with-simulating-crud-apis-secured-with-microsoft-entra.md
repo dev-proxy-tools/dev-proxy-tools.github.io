@@ -4,6 +4,7 @@ description: "We're excited to announce the release of Dev Proxy v0.15, with new
 date: 2024-02-28
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-15-with-simulating-crud-apis-secured-with-microsoft-entra.jpg"
 ---
 
 We're excited to announce the release of Dev Proxy v0.15, with new features that allow you to spend more time building your app and less time on things you won't be shipping.

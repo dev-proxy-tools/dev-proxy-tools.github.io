@@ -4,6 +4,7 @@ description: "We're excited to introduce Dev Proxy v0.29, with a major architect
 date: 2025-06-25
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-29-with-refactored-architecture-mcp-server-and-exposed-lm-prompts.jpg"
 ---
 
 We're excited to introduce Dev Proxy v0.29, with a major architectural overhaul, control over language model prompts, and improved diagnostics. Whether you're building, debugging, or customizing your API simulations, this version gives you more power and clarity than ever before.

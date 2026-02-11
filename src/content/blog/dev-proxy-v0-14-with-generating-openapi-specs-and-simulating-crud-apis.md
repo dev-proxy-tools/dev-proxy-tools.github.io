@@ -4,6 +4,7 @@ description: "Spend more time on building your app and less on plumbing. Make yo
 date: 2024-01-18
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-14-with-generating-openapi-specs-and-simulating-crud-apis.jpg"
 ---
 
 Spend more time on building your app and less on plumbing. Make your apps more robust. We're thrilled to announce the release of Dev Proxy v0.14.0, with exciting features that take building apps connected to APIs to the next level.

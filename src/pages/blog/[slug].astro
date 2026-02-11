@@ -18,7 +18,7 @@ const wordCount = post.body?.split(/\s+/).length ?? 0;
 const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={post.data.title} description={post.data.description} image={post.data.image}>
   <article class="pt-16 pb-24 px-4">
     <div class="max-w-3xl mx-auto">
 
@@ -46,6 +46,13 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
           <span>{readingTime} min read</span>
         </div>
       </header>
+
+      <!-- Hero image -->
+      {post.data.image && (
+        <div class="rounded-2xl overflow-hidden mb-12">
+          <img src={post.data.image} alt="" class="w-full" />
+        </div>
+      )}
 
       <!-- Divider -->
       <div class="w-12 h-0.5 bg-purple-500/40 rounded mb-12"></div>

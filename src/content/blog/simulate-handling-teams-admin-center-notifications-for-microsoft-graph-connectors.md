@@ -4,6 +4,7 @@ description: "Microsoft Graph connectors can be packaged as Microsoft Teams apps
 date: 2024-03-19
 author: "Majesty Uwagerikpe, Waldek Mastykarz"
 tags: ["tutorial"]
+image: "/blog/images/og-image-simulate-handling-teams-admin-center-notifications-for-microsoft-graph-connectors.jpg"
 ---
 
 Microsoft Graph connectors can be packaged as Microsoft Teams apps, enabling admins to deploy them in Teams Admin Center with a single click. This works by sending a webhook notification to a URL denoted in the Teams app manifest. To learn more, read through this [documentation](https://learn.microsoft.com/en-us/graph/connecting-external-content-deploy-teams).

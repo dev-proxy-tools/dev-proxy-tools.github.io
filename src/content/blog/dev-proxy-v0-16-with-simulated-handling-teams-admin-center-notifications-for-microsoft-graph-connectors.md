@@ -4,6 +4,7 @@ description: "Focus on developing your app and not on things that won't go into 
 date: 2024-03-28
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-16-with-simulated-handling-teams-admin-center-notifications-for-microsoft-graph-connectors.jpg"
 ---
 
 Focus on developing your app and not on things that won't go into production. See how your apps deal with API errors. We're excited to share the launch of Dev Proxy v0.16, which has new features that help you create better apps.

@@ -4,6 +4,7 @@ description: "We're excited to share with you a new version of Dev Proxy that he
 date: 2024-11-03
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-22-with-improved-checking-minimal-api-permissions-and-logging.jpg"
 ---
 
 We're excited to share with you a new version of Dev Proxy that helps you build robust apps connected to APIs.

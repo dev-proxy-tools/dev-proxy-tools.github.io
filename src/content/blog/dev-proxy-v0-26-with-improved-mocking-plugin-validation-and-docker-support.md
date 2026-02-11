@@ -4,6 +4,7 @@ description: "We're excited to announce the release of Dev Proxy v0.26. This ver
 date: 2025-04-02
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-26-with-improved-mocking-plugin-validation-and-docker-support.jpg"
 ---
 
 We're excited to announce the release of Dev Proxy v0.26. This version brings improved validation, plugin reliability, an improved developer experience, and a brand-new Docker image to make Dev Proxy even easier to use in isolated and automated environments.

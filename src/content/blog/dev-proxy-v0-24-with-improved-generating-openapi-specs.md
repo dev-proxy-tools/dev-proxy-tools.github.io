@@ -4,6 +4,7 @@ description: "We're thrilled to announce the release of Dev Proxy v0.24. If you'
 date: 2025-01-29
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-24-with-improved-generating-openapi-specs.jpg"
 ---
 
 We're thrilled to announce the release of Dev Proxy v0.24. If you're looking to simulate APIs and test your applications under real-world conditions, you should try Dev Proxy!

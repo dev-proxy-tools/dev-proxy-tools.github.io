@@ -32,6 +32,11 @@ const olderPosts = posts.slice(1);
           class="group block rounded-2xl border overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)]"
           style="background: var(--bg-secondary); border-color: var(--border-primary);"
         >
+          {latestPost.data.image && (
+            <div class="aspect-[2/1] overflow-hidden">
+              <img src={latestPost.data.image} alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            </div>
+          )}
           <div class="p-8 md:p-12">
             <div class="flex items-center gap-3 mb-4">
               <span class="text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-purple-600/20 text-purple-400">Latest</span>
@@ -66,9 +71,15 @@ const olderPosts = posts.slice(1);
           {olderPosts.map((post) => (
             <a
               href={`${import.meta.env.BASE_URL}blog/${post.id.replace(/\.md$/, '')}/`}
-              class="group block rounded-2xl border p-6 md:p-8 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)] flex flex-col"
+              class="group block rounded-2xl border overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)] flex flex-col"
               style="background: var(--bg-secondary); border-color: var(--border-primary);"
             >
+              {post.data.image && (
+                <div class="aspect-[2/1] overflow-hidden">
+                  <img src={post.data.image} alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                </div>
+              )}
+              <div class="p-6 md:p-8 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-4">
                 {post.data.tags.map((tag) => (
                   <span class="text-xs px-2.5 py-1 rounded-full" style="background: var(--bg-tertiary); color: var(--text-faint);">{tag}</span>
@@ -86,6 +97,7 @@ const olderPosts = posts.slice(1);
                 </time>
                 <span>&middot;</span>
                 <span>{post.data.author}</span>
+              </div>
               </div>
             </a>
           ))}

@@ -4,6 +4,7 @@ description: "We're excited to announce the release of Dev Proxy v2.0. Following
 date: 2025-12-04
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v2-0-with-improved-ai-telemetry-and-small-breaking-changes.webp"
 ---
 
 We're excited to announce the release of Dev Proxy v2.0. Following semantic versioning (SemVer), we're bumping the major version due to breaking changes in this release. While these changes are small, they improve Dev Proxy's accuracy and behavior – and we want you to be aware of them.

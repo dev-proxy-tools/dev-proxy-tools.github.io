@@ -4,6 +4,7 @@ description: "We're thrilled to announce the release of Dev Proxy v1.2! This upd
 date: 2025-09-23
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v1-2-with-mock-response-mirroring-and-improved-performance.png"
 ---
 
 We're thrilled to announce the release of Dev Proxy v1.2! This update introduces mock response mirroring capabilities that make API simulation more realistic. Whether you're building complex applications that need dynamic responses or optimizing your development workflow, this release delivers the tools you need to create authentic API experiences.

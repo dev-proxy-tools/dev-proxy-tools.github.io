@@ -4,6 +4,7 @@ description: "We're thrilled to announce the release of Dev Proxy v0.28. This ve
 date: 2025-06-03
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/og-image-dev-proxy-v0-28-with-llm-usage-and-costs-tracking.jpg"
 ---
 
 We're thrilled to announce the release of Dev Proxy v0.28. This version introduces a new ability to help you understand language models' usage and costs in your applications, alongside many improvements to mocking, TypeSpec generation, and plugin flexibility.
