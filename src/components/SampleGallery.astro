@@ -49,19 +49,23 @@ const { samples } = Astro.props;
           </div>
         )}
         <div class="p-6 flex flex-col flex-1">
-          <h3 class="text-lg font-semibold mb-4 group-hover:text-purple-400 transition-colors leading-snug">{sample.data.title}</h3>
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-purple-400 transition-colors leading-snug">{sample.data.title}</h3>
+          <p class="text-sm leading-relaxed mb-4 line-clamp-2" style="color: var(--text-muted);">{sample.data.shortDescription}</p>
           <div class="flex items-center justify-between mt-auto pt-4 border-t" style="border-color: var(--border-primary);">
-            <div class="flex -space-x-2">
-              {sample.data.authors.map((author) => (
-                <img
-                  src={author.pictureUrl}
-                  alt={author.name}
-                  title={author.name}
-                  class="w-7 h-7 rounded-full border-2 transition-transform duration-200 hover:scale-110"
-                  style="border-color: var(--bg-secondary);"
-                  loading="lazy"
-                />
-              ))}
+            <div class="flex items-center gap-3">
+              <div class="flex -space-x-2">
+                {sample.data.authors.map((author) => (
+                  <img
+                    src={author.pictureUrl}
+                    alt={author.name}
+                    title={author.name}
+                    class="w-7 h-7 rounded-full border-2 transition-transform duration-200 hover:scale-110"
+                    style="border-color: var(--bg-secondary);"
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+              <span class="text-xs" style="color: var(--text-faint);">{new Date(sample.data.updateDateTime).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             </div>
             <span class="text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm">&rarr;</span>
           </div>
