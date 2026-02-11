@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <path d="M32 6 6 15.5l4 33.3L32 60l22-11.2 4-33.3Z" fill="#DD0031"/>
-  <path d="M32 6v54l22-11.2 4-33.3Z" fill="#C3002F"/>
-  <path d="M32 12.4 16.2 47h5.9l3.2-7.9h13.4L42 47h5.9Zm4.6 22H27.4L32 23.3Z" fill="#fff"/>
-</svg>
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Angular</title><path fill="#DD0031" d="M16.712 17.711H7.288l-1.204 2.916L12 24l5.916-3.373-1.204-2.916ZM14.692 0l7.832 16.855.814-12.856L14.692 0ZM9.308 0 .662 3.999l.814 12.856L9.308 0Zm-.405 13.93h6.198L12 6.396 8.903 13.93Z"/></svg>
