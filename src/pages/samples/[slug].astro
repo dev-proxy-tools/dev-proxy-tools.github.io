@@ -13,9 +13,10 @@ export async function getStaticPaths() {
 const { sample } = Astro.props;
 const { data } = sample;
 const { Content } = await render(sample);
+const ogImage = data.thumbnails.find(t => t.type === 'image')?.url;
 ---
 
-<Layout title={data.title} description={data.shortDescription}>
+<Layout title={data.title} description={data.shortDescription} image={ogImage}>
   <section class="pt-16 pb-24 px-4">
     <div class="max-w-4xl mx-auto">
 
