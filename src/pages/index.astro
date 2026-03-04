@@ -78,9 +78,31 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-16 px-6 sm:px-8">
     <div class="max-w-6xl mx-auto space-y-32 min-w-0">
 
-      <!-- Use case 1: API Errors -->
+      <!-- Use case 1: Mock APIs -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">API Mocking</p>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Mock APIs that don't exist yet.</h3>
+          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
+            Stand up a fully-functional CRUD API without writing a single line of server code. Design, prototype, and build your frontend in parallel with your backend.
+          </p>
+          <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-crud-api" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
+            Learn more &rarr;
+          </a>
+        </div>
+        <div class="rounded-2xl border p-6 md:p-8 font-mono text-sm overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-primary);">
+          <p style="color: var(--text-faint);">// No backend? No problem.</p>
+          <p class="mt-2"><span class="text-green-400">GET</span>  <span style="color: var(--text-secondary);">/products</span>     <span style="color: var(--text-faint);">→ list</span></p>
+          <p><span class="text-blue-400">POST</span> <span style="color: var(--text-secondary);">/products</span>     <span style="color: var(--text-faint);">→ create</span></p>
+          <p><span class="text-yellow-400">PUT</span>  <span style="color: var(--text-secondary);">/products/:id</span> <span style="color: var(--text-faint);">→ update</span></p>
+          <p><span class="text-red-400">DEL</span>  <span style="color: var(--text-secondary);">/products/:id</span> <span style="color: var(--text-faint);">→ delete</span></p>
+          <p class="mt-4 text-purple-400">// Zero lines of server code.</p>
+        </div>
+      </div>
+
+      <!-- Use case 2: Error Handling / Resilience -->
+      <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="md:order-2">
           <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Resilience Testing</p>
           <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">See how your app handles API errors.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
@@ -90,7 +112,7 @@ import Layout from '../layouts/Layout.astro';
             Learn more &rarr;
           </a>
         </div>
-        <div class="rounded-2xl border p-6 md:p-8 font-mono text-sm overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-primary);">
+        <div class="md:order-1 rounded-2xl border p-6 md:p-8 font-mono text-sm overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-primary);">
           <p style="color: var(--text-faint);">// Your app makes a normal API call</p>
           <p class="truncate" style="color: var(--text-secondary);">fetch(<span class="text-green-400">'https://api.contoso.com/orders'</span>)</p>
           <p class="mt-4 text-purple-400">// Dev Proxy intercepts and returns</p>
@@ -101,7 +123,30 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      <!-- Use case 2: Rate Limiting -->
+      <!-- Use case 3: AI/LLM Testing -->
+      <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">AI / LLM Testing</p>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Build &amp; test AI apps without burning tokens.</h3>
+          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
+            Simulate responses from OpenAI, Azure OpenAI, and other language model APIs. Test error handling, content filtering, and rate limits without real API costs.
+          </p>
+          <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-errors-from-language-model-apis" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
+            Learn more &rarr;
+          </a>
+        </div>
+        <div class="rounded-2xl border p-6 md:p-8 font-mono text-sm overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-primary);">
+          <p style="color: var(--text-faint);">// Your app calls an LLM API</p>
+          <p class="truncate" style="color: var(--text-secondary);">POST <span class="text-green-400">/openai/deployments/chat/completions</span></p>
+          <p class="mt-4 text-purple-400">// Dev Proxy simulates failures</p>
+          <p><span class="text-red-400">429</span> <span style="color: var(--text-faint);">Rate limit exceeded</span></p>
+          <p><span class="text-yellow-400">400</span> <span style="color: var(--text-faint);">Content filter triggered</span></p>
+          <p><span class="text-red-400">500</span> <span style="color: var(--text-faint);">Model unavailable</span></p>
+          <p class="mt-4 text-purple-400">// Save costs. Ship with confidence.</p>
+        </div>
+      </div>
+
+      <!-- Use case 4: Rate Limiting -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div class="md:order-2">
           <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Rate Limit Simulation</p>
@@ -138,56 +183,6 @@ import Layout from '../layouts/Layout.astro';
             </div>
             <p class="text-xs mt-3 font-mono text-purple-400">Retry-After: 30s</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Use case 3: Mock APIs -->
-      <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div>
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">API Mocking</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Mock APIs that don't exist yet.</h3>
-          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Stand up a fully-functional CRUD API without writing a single line of server code. Design, prototype, and build your frontend in parallel with your backend.
-          </p>
-          <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-crud-api" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
-            Learn more &rarr;
-          </a>
-        </div>
-        <div class="rounded-2xl border p-6 md:p-8 font-mono text-sm overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-primary);">
-          <p style="color: var(--text-faint);">// No backend? No problem.</p>
-          <p class="mt-2"><span class="text-green-400">GET</span>  <span style="color: var(--text-secondary);">/products</span>     <span style="color: var(--text-faint);">→ list</span></p>
-          <p><span class="text-blue-400">POST</span> <span style="color: var(--text-secondary);">/products</span>     <span style="color: var(--text-faint);">→ create</span></p>
-          <p><span class="text-yellow-400">PUT</span>  <span style="color: var(--text-secondary);">/products/:id</span> <span style="color: var(--text-faint);">→ update</span></p>
-          <p><span class="text-red-400">DEL</span>  <span style="color: var(--text-secondary);">/products/:id</span> <span style="color: var(--text-faint);">→ delete</span></p>
-          <p class="mt-4 text-purple-400">// Zero lines of server code.</p>
-        </div>
-      </div>
-
-      <!-- Use case 4: Slow APIs -->
-      <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div class="md:order-2">
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Latency Simulation</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Test what happens when APIs are slow.</h3>
-          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Add realistic latency to any API response. Make sure your loading states, timeouts, and cancellation logic work as expected.
-          </p>
-          <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-slow-api-responses" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
-            Learn more &rarr;
-          </a>
-        </div>
-        <div class="md:order-1 rounded-2xl border p-6 md:p-8 flex flex-col items-center justify-center" style="background: var(--bg-secondary); border-color: var(--border-primary); min-height: 200px;">
-          <div class="flex items-end gap-1 mb-4" aria-hidden="true">
-            <div class="w-2 rounded-full bg-green-400" style="height: 20px;"></div>
-            <div class="w-2 rounded-full bg-green-400" style="height: 30px;"></div>
-            <div class="w-2 rounded-full bg-yellow-400" style="height: 50px;"></div>
-            <div class="w-2 rounded-full bg-yellow-400" style="height: 70px;"></div>
-            <div class="w-2 rounded-full bg-red-400" style="height: 100px;"></div>
-            <div class="w-2 rounded-full bg-red-400" style="height: 90px;"></div>
-            <div class="w-2 rounded-full bg-yellow-400" style="height: 60px;"></div>
-            <div class="w-2 rounded-full bg-green-400" style="height: 35px;"></div>
-          </div>
-          <p class="text-4xl font-bold font-mono text-purple-400">3,200<span class="text-lg" style="color: var(--text-faint);">ms</span></p>
-          <p class="text-sm mt-1" style="color: var(--text-faint);">simulated response time</p>
         </div>
       </div>
 
@@ -254,12 +249,12 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="section-reveal grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { title: 'Test my app handles API errors', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/test-my-app-with-random-errors' },
           { title: 'Mock an API that doesn\'t exist yet', time: '10 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-crud-api' },
-          { title: 'Check my Microsoft Graph permissions', time: '10 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/check-minimal-api-permissions' },
-          { title: 'Discover what APIs my app calls', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/discover-urls-to-watch' },
-          { title: 'Automate API testing in CI/CD', time: '15 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/use-dev-proxy-in-ci-cd-overview' },
+          { title: 'Test my app handles API errors', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/test-my-app-with-random-errors' },
           { title: 'Simulate LLM API failures', time: '10 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-errors-from-language-model-apis' },
+          { title: 'Simulate rate limiting responses', time: '10 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-rate-limit-api-responses' },
+          { title: 'Automate API testing in CI/CD', time: '15 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/use-dev-proxy-in-ci-cd-overview' },
+          { title: 'Discover what APIs my app calls', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/discover-urls-to-watch' },
         ].map((scenario) => (
           <a
             href={scenario.href}
