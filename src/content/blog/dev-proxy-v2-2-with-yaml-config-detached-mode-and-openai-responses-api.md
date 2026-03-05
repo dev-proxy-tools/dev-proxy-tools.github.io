@@ -4,6 +4,7 @@ description: "Dev Proxy v2.2 brings YAML configuration support, detached backgro
 date: 2026-03-05
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
+image: "/blog/images/v2-2-0.png"
 ---
 
 We're excited to announce the release of **Dev Proxy v2.2.0!** This is a big one. We've added first-class YAML configuration support, a detached mode for running Dev Proxy in the background, and rebuilt the CLI experience from the ground up for automation and AI agents.
