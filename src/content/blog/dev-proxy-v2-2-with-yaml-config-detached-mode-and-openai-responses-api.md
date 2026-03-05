@@ -176,11 +176,12 @@ In this version, we've:
 
 - Added a "Start with Options..." command to launch Dev Proxy with interactive prompts for CLI settings
 - Added automated install and upgrade support for Linux
-- Added detection of outdated config files with schema version warnings
+- Added prompt to recommend Dev Proxy Toolkit when a project contains Dev Proxy config files but doesn't have it listed in recommended workspace extensions
 - Added an "Upgrade Configs" command that uses Copilot Chat with Dev Proxy MCP tools
 - Added quick fixes for orphaned config sections (remove or link to a plugin)
 - Updated all JSON snippets to use v2.2.0 schemas
-- Fixed logging issues and improved diagnostics accuracy
+- Introduced improved logging output
+- Fixed incorrect diagnostics
 
 Checkout out the [changelog](https://marketplace.visualstudio.com/items/garrytrinder.dev-proxy-toolkit/changelog) for more information on changes and bug fixes.
 
