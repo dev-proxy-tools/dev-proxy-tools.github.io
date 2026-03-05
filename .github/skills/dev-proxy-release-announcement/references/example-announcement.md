@@ -68,6 +68,18 @@ When your app uses cached prompts, OpenAI charges significantly less for those t
 
 ---
 
+## Dev Proxy Toolkit
+
+[Dev Proxy Toolkit](https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit) is an extension that makes it easier to work with Dev Proxy from within Visual Studio Code. Alongside the new release of Dev Proxy, we've also released a new version of the toolkit, v1.10.0.
+
+In this version, we've:
+
+- Updated all JSON snippets to use v2.0.0 schemas
+
+Checkout out the [changelog](https://marketplace.visualstudio.com/items/garrytrinder.dev-proxy-toolkit/changelog) for more information on changes and bug fixes.
+
+---
+
 ### **Why upgrade to v2.0.0?**
 
 While the breaking changes are small, they make Dev Proxy more accurate and reliable. **Dev Proxy v2.0.0** ensures:
