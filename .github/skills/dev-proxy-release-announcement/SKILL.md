@@ -82,6 +82,37 @@ When describing Microsoft Graph mocking fixes:
 - Highlight consistency across environments
 - Position fixes as bringing Dev Proxy closer to real Graph behavior
 
+## Dev Proxy Toolkit Section
+
+Every announcement includes a section about the companion VS Code extension: [Dev Proxy Toolkit](https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit).
+
+STOP - Before writing this section, fetch the toolkit changelog to identify the latest released version and its changes:
+
+1. Fetch `https://marketplace.visualstudio.com/items/garrytrinder.dev-proxy-toolkit/changelog`
+2. Identify the latest **released** version (skip entries marked "Unreleased")
+3. Summarize the key changes from that version's Added, Changed, and Fixed sections
+4. Write the section following this pattern:
+
+```markdown
+## Dev Proxy Toolkit
+
+[Dev Proxy Toolkit](https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit) is an extension that makes it easier to work with Dev Proxy from within Visual Studio Code. Alongside the new release of Dev Proxy, we've also released a new version of the toolkit, vX.X.X.
+
+In this version, we've:
+
+- [Key change 1]
+- [Key change 2]
+- [Key change 3]
+
+Checkout out the [changelog](https://marketplace.visualstudio.com/items/garrytrinder.dev-proxy-toolkit/changelog) for more information on changes and bug fixes.
+```
+
+**Guidelines:**
+- Use `##` heading (not `###`) unless the announcement uses a "Tools" parent section
+- Summarize changes in user-friendly language - don't just copy changelog entries
+- Group related changes (e.g., multiple new snippets become "Added new snippets for X and Y plugins")
+- Always end with the changelog link
+
 ## Announcement Structure
 
 ```markdown
@@ -100,6 +131,12 @@ When describing Microsoft Graph mocking fixes:
 ### **[Section title]**
 
 [Description - use "What changed:" and "Impact:" for breaking changes]
+
+---
+
+## Dev Proxy Toolkit
+
+[See Dev Proxy Toolkit Section above]
 
 ---
 
@@ -133,10 +170,11 @@ Store in: `Projects/Dev Proxy/Release announcements/vX.X.X.md`
 1. Gather changelog (see "Gathering Changelog Input" above)
 2. Analyze and categorize changes
 3. Identify breaking changes and their impact
-4. Draft announcement following the structure
-5. Check for duplicate content across sections
-6. Verify dashes are regular, not em-dashes
-7. Confirm title uses sentence case
+4. Fetch Dev Proxy Toolkit changelog (see "Dev Proxy Toolkit Section" above)
+5. Draft announcement following the structure
+6. Check for duplicate content across sections
+7. Verify dashes are regular, not em-dashes
+8. Confirm title uses sentence case
 
 ## Reference Files
 
