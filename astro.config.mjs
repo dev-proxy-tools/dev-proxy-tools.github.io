@@ -9,7 +9,7 @@ export default defineConfig({
   base: '/',
   integrations: [
     astroConsent({
-      siteName: 'Dev Proxy',
+      siteName: 'This website',
       policyUrl: 'https://go.microsoft.com/fwlink/?LinkId=521839',
       consent: {
         days: 90,
