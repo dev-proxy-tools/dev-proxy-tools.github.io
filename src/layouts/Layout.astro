@@ -21,19 +21,19 @@ const ogImage = image ? new URL(image, Astro.site ?? 'https://devproxy.net').hre
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Dev Proxy</title>
+    <title>{title} - Dev Proxy</title>
     <link rel="alternate" type="application/rss+xml" title="Dev Proxy Blog" href={`${import.meta.env.BASE_URL}rss.xml`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | Dev Proxy`} />
+    <meta property="og:title" content={`${title} - Dev Proxy`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL.href} />
     {ogImage && <meta property="og:image" content={ogImage} />}
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
-    <meta name="twitter:title" content={`${title} | Dev Proxy`} />
+    <meta name="twitter:title" content={`${title} - Dev Proxy`} />
     <meta name="twitter:description" content={description} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
     <script is:inline>
