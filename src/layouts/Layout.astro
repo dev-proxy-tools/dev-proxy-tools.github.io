@@ -56,9 +56,9 @@ const ogImage = image ? new URL(image, Astro.site ?? 'https://devproxy.net').hre
           })(window, document, "clarity", "script", "vr3ajkmgm3");
         }
         function checkConsent() {
-          if (window.cookieConsent) {
-            var consent = window.cookieConsent.get();
-            if (consent && consent.analytics) loadClarity();
+          if (window.astroConsent) {
+            var consent = window.astroConsent.get();
+            if (consent && consent.categories && consent.categories.analytics) loadClarity();
           }
         }
         checkConsent();
@@ -149,7 +149,7 @@ const ogImage = image ? new URL(image, Astro.site ?? 'https://devproxy.net').hre
     <footer class="border-t py-8 mt-16" style="border-color: var(--border-primary);">
       <div class="max-w-6xl mx-auto px-4 text-center text-sm" style="color: var(--text-faint);">
         <p>&copy; {new Date().getFullYear()} Dev Proxy.</p>
-        <p class="mt-2"><button onclick="window.cookieConsent && window.cookieConsent.reset()" class="underline hover:text-purple-400 transition-colors" style="color: var(--text-faint); background: none; border: none; cursor: pointer; font-size: inherit;">Cookie Settings</button></p>
+        <p class="mt-2"><button onclick="window.astroConsent && window.astroConsent.reset()" class="underline hover:text-purple-400 transition-colors" style="color: var(--text-faint); background: none; border: none; cursor: pointer; font-size: inherit;">Cookie Settings</button></p>
       </div>
     </footer>
 
