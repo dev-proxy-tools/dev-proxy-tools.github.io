@@ -10,7 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "4.0.15",
+    "@astrojs/rss": "4.0.17",
     "@tailwindcss/vite": "4.2.1",
     "astro": "5.18.0",
     "astro-consent": "1.0.17",
