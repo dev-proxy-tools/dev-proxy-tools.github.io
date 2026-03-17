@@ -279,6 +279,55 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Dev Proxy Toolkit — VS Code extension -->
+  <section class="py-32 px-6 sm:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
+          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">VS Code Extension</p>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Dev Proxy Toolkit for Visual&nbsp;Studio&nbsp;Code.</h3>
+          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
+            Control Dev Proxy directly from your editor. Manage configurations with IntelliSense, use 100+ code snippets, and leverage the built-in MCP server for AI-assisted development&thinsp;&mdash;&thinsp;all without leaving VS&nbsp;Code.
+          </p>
+          <a href="https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
+            Install from Marketplace &rarr;
+          </a>
+        </div>
+        <div class="rounded-2xl border p-6 md:p-8 overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-primary);">
+          <div class="flex items-center gap-3 mb-6">
+            <img src={`${import.meta.env.BASE_URL}logos/vscode.svg`} alt="Visual Studio Code" class="w-8 h-8" />
+            <div>
+              <p class="font-semibold">Dev Proxy Toolkit</p>
+              <p class="text-xs" style="color: var(--text-faint);">garrytrinder</p>
+            </div>
+          </div>
+          <div class="space-y-3 font-mono text-sm">
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">&#10003;</span>
+              <span style="color: var(--text-secondary);">Control Dev Proxy from VS Code</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">&#10003;</span>
+              <span style="color: var(--text-secondary);">IntelliSense for config files</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">&#10003;</span>
+              <span style="color: var(--text-secondary);">100+ code snippets</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">&#10003;</span>
+              <span style="color: var(--text-secondary);">Debugger integration</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">&#10003;</span>
+              <span style="color: var(--text-secondary);">MCP server for AI-assisted development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- .NET Foundation membership -->
   <section class="py-24 px-6 sm:px-8">
     <div class="max-w-4xl mx-auto text-center">
