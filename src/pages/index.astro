@@ -214,6 +214,33 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
+      <!-- Use case 6: MCP Server -->
+      <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="md:order-2">
+          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">MCP Server</p>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Configure Dev Proxy with AI&nbsp;assistants.</h3>
+          <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
+            Use the Dev Proxy MCP server to create configurations using natural language. Get contextual help and discover features&thinsp;&mdash;&thinsp;right from your AI assistant.
+          </p>
+          <a href="https://github.com/dev-proxy-tools/mcp" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
+            Learn more &rarr;
+          </a>
+        </div>
+        <div class="md:order-1 rounded-2xl border p-6 md:p-8 font-mono text-sm overflow-hidden" style="background: var(--bg-secondary); border-color: var(--border-primary);">
+          <p style="color: var(--text-faint);">// .vscode/mcp.json</p>
+          <p class="mt-2" style="color: var(--text-secondary);">&#123;</p>
+          <p style="color: var(--text-secondary);">&nbsp;&nbsp;<span class="text-purple-400">"servers"</span>: &#123;</p>
+          <p style="color: var(--text-secondary);">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">"devproxy"</span>: &#123;</p>
+          <p style="color: var(--text-secondary);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">"type"</span>: <span class="text-green-400">"stdio"</span>,</p>
+          <p class="truncate" style="color: var(--text-secondary);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">"command"</span>: <span class="text-green-400">"npx"</span>,</p>
+          <p class="truncate" style="color: var(--text-secondary);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">"args"</span>: [<span class="text-green-400">"-y"</span>, <span class="text-green-400">"@devproxy/mcp"</span>]</p>
+          <p style="color: var(--text-secondary);">&nbsp;&nbsp;&nbsp;&nbsp;&#125;</p>
+          <p style="color: var(--text-secondary);">&nbsp;&nbsp;&#125;</p>
+          <p style="color: var(--text-secondary);">&#125;</p>
+          <p class="mt-3 text-purple-400">// AI-powered configuration. Natural language.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
