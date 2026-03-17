@@ -279,6 +279,29 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- .NET Foundation membership -->
+  <section class="py-24 px-6 sm:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <a
+        href="https://dotnetfoundation.org/projects/project-detail/dev-proxy"
+        target="_blank"
+        rel="noopener"
+        class="section-reveal inline-flex flex-col sm:flex-row items-center gap-6 sm:gap-8 rounded-2xl border p-8 sm:p-10 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)] no-underline"
+        style="background: var(--bg-secondary); border-color: var(--border-primary);"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}logos/dotnet-foundation.svg`}
+          alt=".NET Foundation logo"
+          class="h-20 w-20 shrink-0"
+        />
+        <div class="text-center sm:text-left">
+          <p class="text-lg font-semibold mb-1" style="color: var(--text-primary);">Proud member of the .NET Foundation</p>
+          <p class="text-sm" style="color: var(--text-muted);">Dev Proxy is a community-maintained open source project supported by the .NET Foundation.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- Final CTA — bold, cinematic -->
   <section class="py-32 px-6 sm:px-8 relative overflow-hidden">
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
