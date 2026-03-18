@@ -6,11 +6,47 @@ interface Props {
 }
 
 const { samples } = Astro.props;
+
+// Build metadata filters at build time
+// Exclude SAMPLE ID (unique per sample, not useful for filtering)
+const EXCLUDED_KEYS = new Set(['SAMPLE ID']);
+const metadataFilters = new Map<string, Map<string, string>>();
+
+for (const sample of samples) {
+  for (const { key, value } of sample.data.metadata) {
+    if (EXCLUDED_KEYS.has(key)) continue;
+    if (!metadataFilters.has(key)) {
+      metadataFilters.set(key, new Map());
+    }
+    // Use case-insensitive deduplication, keeping the first encountered form
+    const valuesMap = metadataFilters.get(key)!;
+    const lowerValue = value.toLowerCase();
+    if (!valuesMap.has(lowerValue)) {
+      valuesMap.set(lowerValue, value);
+    }
+  }
+}
+
+// Sort keys alphabetically, values alphabetically within each key
+const sortedFilters = [...metadataFilters.entries()]
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([key, valuesMap]) => [key, [...valuesMap.values()].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))] as const);
+
+// Build per-card metadata JSON for client-side filtering
+function getMetadataMap(sample: CollectionEntry<'samples'>): Record<string, string> {
+  const map: Record<string, string> = {};
+  for (const { key, value } of sample.data.metadata) {
+    if (!EXCLUDED_KEYS.has(key)) {
+      map[key] = value;
+    }
+  }
+  return map;
+}
 ---
 
 <div id="sample-gallery">
   <!-- Search bar -->
-  <div class="mb-10 max-w-xl mx-auto">
+  <div class="mb-6 max-w-xl mx-auto">
     <div class="relative">
       <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none" style="color: var(--text-faint);" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -23,6 +59,33 @@ const { samples } = Astro.props;
       />
     </div>
   </div>
+
+  {sortedFilters.length > 0 && (
+    <div id="metadata-filters" class="mb-8 flex flex-wrap items-center justify-center gap-4">
+      {sortedFilters.map(([key, values]) => (
+        <div class="flex items-center gap-2">
+          <label
+            for={`filter-${key.toLowerCase().replace(/\s+/g, '-')}`}
+            class="text-xs font-medium uppercase tracking-wide"
+            style="color: var(--text-faint);"
+          >
+            {key}
+          </label>
+          <select
+            id={`filter-${key.toLowerCase().replace(/\s+/g, '-')}`}
+            class="metadata-filter rounded-lg border px-3 py-1.5 text-sm focus:outline-none focus:border-purple-500 transition-all duration-300 cursor-pointer"
+            style="background: var(--bg-secondary); border-color: var(--border-secondary); color: var(--text-primary);"
+            data-filter-key={key}
+          >
+            <option value="">All</option>
+            {values.map((value) => (
+              <option value={value}>{value}</option>
+            ))}
+          </select>
+        </div>
+      ))}
+    </div>
+  )}
 
   <p id="sample-count" class="text-sm mb-8 text-center" style="color: var(--text-faint);">
     {samples.length} samples
@@ -37,6 +100,7 @@ const { samples } = Astro.props;
         data-title={sample.data.title.toLowerCase()}
         data-description={sample.data.shortDescription.toLowerCase()}
         data-authors={sample.data.authors.map(a => a.name.toLowerCase()).join(' ')}
+        data-metadata={JSON.stringify(getMetadataMap(sample))}
       >
         {sample.data.thumbnails?.[0] && (
           <div class="overflow-hidden">
@@ -75,30 +139,59 @@ const { samples } = Astro.props;
   </div>
 
   <p id="no-results" class="text-center py-16 hidden" style="color: var(--text-faint);">
-    No samples match your search.
+    No samples match your search or filters.
   </p>
 </div>
 
 <script>
   const searchInput = document.getElementById('sample-search') as HTMLInputElement;
+  const filterSelects = document.querySelectorAll('.metadata-filter') as NodeListOf<HTMLSelectElement>;
   const cards = document.querySelectorAll('.sample-card') as NodeListOf<HTMLElement>;
   const countEl = document.getElementById('sample-count')!;
   const noResults = document.getElementById('no-results')!;
 
-  searchInput.addEventListener('input', () => {
+  function applyFilters() {
     const query = searchInput.value.toLowerCase().trim();
+
+    // Collect active metadata filters
+    const activeFilters: Record<string, string> = {};
+    filterSelects.forEach((select) => {
+      const key = select.dataset.filterKey!;
+      const value = select.value;
+      if (value) {
+        activeFilters[key] = value;
+      }
+    });
+
     let visible = 0;
 
     cards.forEach((card) => {
       const title = card.dataset.title || '';
       const description = card.dataset.description || '';
       const authors = card.dataset.authors || '';
-      const matches = !query || title.includes(query) || description.includes(query) || authors.includes(query);
+      const metadata: Record<string, string> = JSON.parse(card.dataset.metadata || '{}');
+
+      // Text search match
+      const textMatch = !query || title.includes(query) || description.includes(query) || authors.includes(query);
+
+      // Metadata filter match (all active filters must match)
+      let metadataMatch = true;
+      for (const [key, value] of Object.entries(activeFilters)) {
+        if ((metadata[key] || '').toLowerCase() !== value.toLowerCase()) {
+          metadataMatch = false;
+          break;
+        }
+      }
+
+      const matches = textMatch && metadataMatch;
       card.style.display = matches ? '' : 'none';
       if (matches) visible++;
     });
 
     countEl.textContent = `${visible} sample${visible !== 1 ? 's' : ''}`;
     noResults.classList.toggle('hidden', visible > 0);
-  });
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  filterSelects.forEach((select) => select.addEventListener('change', applyFilters));
 </script>
