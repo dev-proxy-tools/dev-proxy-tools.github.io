@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/rss": "4.0.17",
     "@microsoft/clarity": "^1.0.2",
-    "@tailwindcss/vite": "4.2.1",
+    "@tailwindcss/vite": "4.2.2",
     "astro": "5.18.0",
     "astro-consent": "1.0.17",
     "tailwindcss": "4.2.1"
