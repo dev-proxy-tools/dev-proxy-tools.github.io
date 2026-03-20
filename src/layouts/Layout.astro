@@ -46,24 +46,53 @@ const ogImage = image ? new URL(image, Astro.site ?? 'https://devproxy.net').hre
         }
       })();
     </script>
-    <script is:inline>
-      (function() {
-        function loadClarity() {
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "vr3ajkmgm3");
+    <script>
+      import Clarity from '@microsoft/clarity';
+
+      type AstroConsent = {
+        get(): { categories?: { analytics?: boolean } } | null;
+        set(categories: Record<string, boolean>): void;
+        reset(): void;
+      };
+
+      const w = window as Window & { astroConsent?: AstroConsent };
+
+      let clarityLoaded = false;
+      function loadClarity() {
+        if (clarityLoaded) return;
+        clarityLoaded = true;
+        Clarity.init("vr3ajkmgm3");
+      }
+
+      function checkConsent() {
+        if (w.astroConsent) {
+          const consent = w.astroConsent.get();
+          if (consent?.categories?.analytics) loadClarity();
         }
-        function checkConsent() {
-          if (window.astroConsent) {
-            var consent = window.astroConsent.get();
-            if (consent && consent.categories && consent.categories.analytics) loadClarity();
-          }
-        }
-        checkConsent();
-        document.addEventListener('cookie-consent-updated', checkConsent);
-      })();
+      }
+
+      // Check on load (returning visitor who already accepted)
+      checkConsent();
+
+      // Wrap astroConsent.set to detect consent changes without a page reload
+      if (w.astroConsent) {
+        const originalSet = w.astroConsent.set.bind(w.astroConsent);
+        w.astroConsent.set = (categories: Record<string, boolean>) => {
+          originalSet(categories);
+          if (categories.analytics) loadClarity();
+        };
+      }
+
+      // Rename "Reject" button to "Essential only" (not configurable in astro-consent)
+      const rejectBtn = document.querySelector<HTMLButtonElement>('#astro-consent-banner .cb-reject');
+      if (rejectBtn) {
+        rejectBtn.textContent = 'Essential only';
+      } else {
+        new MutationObserver((_mutations, obs) => {
+          const btn = document.querySelector<HTMLButtonElement>('#astro-consent-banner .cb-reject');
+          if (btn) { btn.textContent = 'Essential only'; obs.disconnect(); }
+        }).observe(document.body, { childList: true, subtree: true });
+      }
     </script>
   </head>
   <body class="min-h-screen flex flex-col">
