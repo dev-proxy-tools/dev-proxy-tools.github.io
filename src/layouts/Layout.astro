@@ -64,23 +64,28 @@ const ogImage = image ? new URL(image, Astro.site ?? 'https://devproxy.net').hre
         Clarity.init("vr3ajkmgm3");
       }
 
-      function checkConsent() {
-        if (w.astroConsent) {
-          const consent = w.astroConsent.get();
-          if (consent?.categories?.analytics) loadClarity();
-        }
-      }
+      function setup() {
+        if (!w.astroConsent) return;
 
-      // Check on load (returning visitor who already accepted)
-      checkConsent();
+        // Check if returning visitor already consented
+        const consent = w.astroConsent.get();
+        if (consent?.categories?.analytics) loadClarity();
 
-      // Wrap astroConsent.set to detect consent changes without a page reload
-      if (w.astroConsent) {
+        // Wrap astroConsent.set to detect consent changes without a page reload
         const originalSet = w.astroConsent.set.bind(w.astroConsent);
         w.astroConsent.set = (categories: Record<string, boolean>) => {
           originalSet(categories);
           if (categories.analytics) loadClarity();
         };
+      }
+
+      // This inline module script runs before the external astro-consent module
+      // that creates window.astroConsent. Defer setup to the next macrotask so
+      // all deferred module scripts have executed first.
+      if (w.astroConsent) {
+        setup();
+      } else {
+        setTimeout(setup, 0);
       }
 
       // Rename "Reject" button to "Essential only" (not configurable in astro-consent)
