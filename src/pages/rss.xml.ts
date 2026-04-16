@@ -16,7 +16,7 @@ export async function GET(context: APIContext) {
       description: post.data.description,
       pubDate: post.data.date,
       author: post.data.author,
-      link: `${import.meta.env.BASE_URL}blog/${post.id.replace(/\.md$/, '')}/`,
+      link: `${import.meta.env.BASE_URL}blog/${post.id}/`,
     })),
   });
 }

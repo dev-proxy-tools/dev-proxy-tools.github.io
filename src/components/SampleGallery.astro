@@ -31,7 +31,7 @@ const { samples } = Astro.props;
   <div id="sample-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {samples.map((sample) => (
       <a
-        href={`${import.meta.env.BASE_URL}samples/${sample.id.replace(/\.md$/, '')}/`}
+        href={`${import.meta.env.BASE_URL}samples/${sample.id}/`}
         class="sample-card group rounded-2xl border transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.08)] flex flex-col overflow-hidden"
         style="background: var(--bg-secondary); border-color: var(--border-primary);"
         data-title={sample.data.title.toLowerCase()}
