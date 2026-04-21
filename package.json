@@ -15,7 +15,7 @@
     "@tailwindcss/vite": "4.2.2",
     "astro": "^6.1.7",
     "astro-consent": "2.0.0",
-    "tailwindcss": "4.2.2"
+    "tailwindcss": "4.2.3"
   },
   "devDependencies": {
     "tsx": "4.21.0"
