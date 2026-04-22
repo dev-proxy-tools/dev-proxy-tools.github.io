@@ -13,7 +13,7 @@
     "@astrojs/rss": "4.0.18",
     "@microsoft/clarity": "^1.0.2",
     "@tailwindcss/vite": "4.2.2",
-    "astro": "^6.1.7",
+    "astro": "^6.1.8",
     "astro-consent": "2.0.0",
     "tailwindcss": "4.2.4"
   },
