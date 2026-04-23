@@ -4,7 +4,7 @@ description: "Dev Proxy v2.3.4 fixes HAR entry timestamps to reflect actual requ
 date: 2026-04-23
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
-image: "/blog/images/v2-3-2.png"
+image: "/blog/images/v2-3-4.png"
 ---
 
 We've just released **Dev Proxy v2.3.4** - a cleanup release that perfects the HAR timestamp fix introduced in v2.3.3.
