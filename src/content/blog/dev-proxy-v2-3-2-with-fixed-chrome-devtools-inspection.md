@@ -1,7 +1,7 @@
 ---
 title: "Dev Proxy v2.3.2 with fixed Chrome DevTools inspection"
 description: "Dev Proxy v2.3.2 fixes Chrome DevTools inspection broken on Chromium 146+ (Chrome and Edge) by updating the WebSocket connection to use the IPv4 loopback address."
-date: 2026-04-23
+date: 2026-04-22
 author: "Waldek Mastykarz, Garry Trinder"
 tags: ["release"]
 image: "/blog/images/v2-3-2.png"
