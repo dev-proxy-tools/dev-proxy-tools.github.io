@@ -13,8 +13,8 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="relative z-10 w-full min-w-0 max-w-4xl mx-auto text-center px-6 sm:px-8">
       <h1 class="hero-fade hero-fade-1 font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-8">
-        Test beyond<br />
-        <span class="text-purple-400">the happy path.</span>
+        Your app works fine.<br />
+        <span class="text-purple-400">Until the API doesn't.</span>
       </h1>
       <p class="hero-fade hero-fade-2 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed" style="color: var(--text-muted);">
         Simulate API failures, throttling, and slow responses against your running app&thinsp;&mdash;&thinsp;without changing a single line of code. Find out how your app really behaves before your users do.
@@ -63,15 +63,15 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Problem statement — emotional hook -->
+  <!-- Problem → solution bridge -->
   <section class="py-32 px-6 sm:px-8">
     <div class="max-w-3xl mx-auto text-center">
       <h2 class="section-reveal font-heading text-3xl md:text-5xl font-bold leading-tight mb-8">
         You test the happy path.<br />
-        <span style="color: var(--text-faint);">Your users get the rest.</span>
+        <span style="color: var(--text-faint);">Dev Proxy tests everything else.</span>
       </h2>
       <p class="section-reveal text-lg md:text-xl leading-relaxed" style="color: var(--text-muted);">
-        APIs fail, throttle, and timeout. When your app doesn't handle those moments, users lose work, retries spiral, and you get paged at 2&thinsp;AM. Simulating these failures used to mean writing custom mocks or waiting for production to break. Not anymore.
+        Errors, throttling, timeouts, unexpected payloads&thinsp;&mdash;&thinsp;all the things that break apps in production but are hard to reproduce in development. Dev Proxy simulates them against your running app, locally, without changing your code.
       </p>
     </div>
   </section>
