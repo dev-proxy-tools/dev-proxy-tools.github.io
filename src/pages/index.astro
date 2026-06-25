@@ -12,15 +12,15 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="relative z-10 w-full min-w-0 max-w-4xl mx-auto text-center px-6 sm:px-8">
-      <p class="hero-fade hero-fade-1 text-sm font-semibold tracking-widest uppercase mb-6 text-purple-400">
-        Open Source &middot; Cross Platform &middot; Any Tech Stack
+      <p class="hero-fade hero-fade-1 text-sm font-medium mb-6" style="color: var(--text-muted);">
+        Open source. Cross platform. Any tech stack.
       </p>
       <h1 class="hero-fade hero-fade-2 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-8">
         Test beyond<br />
-        <span class="bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">the happy path.</span>
+        <span class="text-purple-400">the happy path.</span>
       </h1>
       <p class="hero-fade hero-fade-3 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed" style="color: var(--text-muted);">
-        Dev Proxy is an API simulator that helps you test how your app handles errors, throttling, and slow responses&thinsp;&mdash;&thinsp;without changing a single line of code.
+        Simulate API failures, throttling, and slow responses against your running app&thinsp;&mdash;&thinsp;without changing a single line of code. Find out how your app really behaves before your users do.
       </p>
       <div class="hero-fade hero-fade-4 flex gap-4 justify-center flex-wrap">
         <a
@@ -29,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
           rel="noopener"
           class="group px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]"
         >
-          Get Started <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+          Simulate your first API error <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
         </a>
         <a
           href={`${import.meta.env.BASE_URL}samples/`}
@@ -74,7 +74,7 @@ import Layout from '../layouts/Layout.astro';
         <span style="color: var(--text-faint);">Your users get the rest.</span>
       </h2>
       <p class="section-reveal text-lg md:text-xl leading-relaxed" style="color: var(--text-muted);">
-        APIs fail. They throttle. They respond slowly. They return unexpected data. And when they do, your app needs to handle it gracefully. But simulating these failures is hard&thinsp;&mdash;&thinsp;until now.
+        APIs fail, throttle, and timeout. When your app doesn't handle those moments, users lose work, retries spiral, and you get paged at 2&thinsp;AM. Simulating these failures used to mean writing custom mocks or waiting for production to break. Not anymore.
       </p>
     </div>
   </section>
@@ -86,10 +86,9 @@ import Layout from '../layouts/Layout.astro';
       <!-- Use case 1: Mock APIs -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">API Mocking</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Mock APIs that don't exist yet.</h3>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Build frontend features before the backend is ready.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Stand up a fully-functional CRUD API without writing a single line of server code. Design, prototype, and build your frontend in parallel with your backend.
+            Mock realistic CRUD APIs locally so your team can prototype, integrate, and ship frontend work without waiting for backend endpoints. Define it in JSON, get a working API in seconds.
           </p>
           <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-crud-api" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
             Learn more &rarr;
@@ -110,10 +109,9 @@ import Layout from '../layouts/Layout.astro';
       <!-- Use case 2: Error Handling / Resilience -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div class="md:order-2">
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Resilience Testing</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">See how your app handles API errors.</h3>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Verify your retries, fallbacks, and error&nbsp;states actually work.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Simulate random errors, timeouts, and failures for any API — without touching your code. Build more robust apps and never lose your customers' data.
+            Inject random errors, timeouts, and 5xx responses into any API your app calls. Test your loading states, retry logic, and error messages before real users depend on them&thinsp;&mdash;&thinsp;without touching your code.
           </p>
           <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/test-my-app-with-random-errors" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
             Learn more &rarr;
@@ -133,10 +131,9 @@ import Layout from '../layouts/Layout.astro';
       <!-- Use case 3: AI/LLM Testing -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">AI / LLM Testing</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Build & test AI apps without burning tokens.</h3>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Iterate on AI features without burning tokens.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Route OpenAI and Azure OpenAI API calls to a local language model during development. Get real responses while building your AI-powered apps&thinsp;&mdash;&thinsp;without spending tokens.
+            Route OpenAI and Azure OpenAI calls to a local model while you build. Iterate faster, test AI workflows end-to-end, and keep your API bill at zero during development.
           </p>
           <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-openai" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
             Learn more &rarr;
@@ -155,10 +152,9 @@ import Layout from '../layouts/Layout.astro';
       <!-- Use case 4: Rate Limiting -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div class="md:order-2">
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Rate Limit Simulation</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Verify your app respects API limits.</h3>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Prevent rate-limit surprises in&nbsp;production.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Simulate rate limiting and throttling responses before they happen in production. Avoid getting blocked and deliver a smoother experience for your users.
+            Simulate 429s and throttling locally so you can validate your retry logic, backoff strategy, and user-facing messaging before real APIs start blocking your app.
           </p>
           <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-rate-limit-api-responses" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
             Learn more &rarr;
@@ -192,10 +188,9 @@ import Layout from '../layouts/Layout.astro';
       <!-- Use case 5: CI/CD -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">CI/CD Integration</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Automate chaos testing in&nbsp;your pipeline.</h3>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Catch broken API assumptions before&nbsp;deploy.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Run Dev Proxy as part of your CI/CD pipeline to catch API integration issues before they reach production. Works with GitHub Actions, Azure DevOps, and more.
+            Run Dev Proxy in your CI/CD pipeline to test how your app handles errors, throttling, and slow responses on every push. Issues surface in the PR, not in production.
           </p>
           <a href="https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/use-dev-proxy-with-github-actions" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
             Learn more &rarr;
@@ -217,10 +212,9 @@ import Layout from '../layouts/Layout.astro';
       <!-- Use case 6: MCP Server -->
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div class="md:order-2">
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">MCP Server</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Configure Dev Proxy with AI&nbsp;assistants.</h3>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Set up test scenarios faster with&nbsp;AI.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Use the Dev Proxy MCP server to create configurations using natural language. Get contextual help and discover features&thinsp;&mdash;&thinsp;right from your AI assistant.
+            Use the Dev Proxy MCP server to generate configurations in natural language. Describe what you want to simulate and your AI assistant writes the config for you.
           </p>
           <a href="https://github.com/dev-proxy-tools/mcp" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
             Learn more &rarr;
@@ -247,10 +241,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- Works with everything -->
   <section class="py-32 px-6 sm:px-8">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="section-reveal text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Platform Agnostic</p>
-      <h2 class="section-reveal text-3xl md:text-5xl font-bold mb-8">Works with everything you use.</h2>
+      <h2 class="section-reveal text-3xl md:text-5xl font-bold mb-8">Test the app you actually ship.</h2>
       <p class="section-reveal text-lg md:text-xl mb-16" style="color: var(--text-muted);">
-        Dev Proxy intercepts network traffic at the system level. It works with any language, framework, and API&thinsp;&mdash;&thinsp;no SDKs, no adapters, no code changes.
+        Dev Proxy intercepts HTTP traffic at the system level. No SDKs. No adapters. No test-only branches. It works against the app you already have&thinsp;&mdash;&thinsp;in any language, any framework, any API.
       </p>
       <div class="section-reveal grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
@@ -275,10 +268,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- Getting started video -->
   <section class="py-32 px-6 sm:px-8">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="section-reveal text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">See It In Action</p>
-      <h2 class="section-reveal text-3xl md:text-5xl font-bold mb-8">Get started with Dev Proxy.</h2>
+      <h2 class="section-reveal text-3xl md:text-5xl font-bold mb-8">Up and running in 5&nbsp;minutes.</h2>
       <p class="section-reveal text-lg md:text-xl mb-12" style="color: var(--text-muted);">
-        Watch how to set up Dev Proxy and start testing your app in minutes.
+        Install Dev Proxy, point it at any URL, and start simulating failures immediately. No config needed for the basics.
       </p>
       <div class="section-reveal rounded-2xl border overflow-hidden" style="border-color: var(--border-primary);">
         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
@@ -298,17 +290,16 @@ import Layout from '../layouts/Layout.astro';
   <section class="py-32 px-6 sm:px-8" style="background: var(--bg-secondary);">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <p class="section-reveal text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Get Started In Minutes</p>
-        <h2 class="section-reveal text-3xl md:text-5xl font-bold">What do you want to do?</h2>
+        <h2 class="section-reveal text-3xl md:text-5xl font-bold">What do you want to test?</h2>
       </div>
       <div class="section-reveal grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
+          { title: 'Test how my app handles API errors', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/test-my-app-with-random-errors' },
           { title: 'Mock an API that doesn\'t exist yet', time: '10 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-crud-api' },
-          { title: 'Test my app handles API errors', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/test-my-app-with-random-errors' },
-          { title: 'Simulate OpenAI with a local LLM', time: '15 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-openai' },
-          { title: 'Simulate rate limiting responses', time: '10 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-rate-limit-api-responses' },
-          { title: 'Automate API testing in CI/CD', time: '15 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/use-dev-proxy-with-github-actions' },
-          { title: 'Discover what APIs my app calls', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/discover-urls-to-watch' },
+          { title: 'Use a local LLM instead of OpenAI', time: '15 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-openai' },
+          { title: 'Simulate rate limiting locally', time: '10 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/simulate-rate-limit-api-responses' },
+          { title: 'Run API failure tests in CI/CD', time: '15 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/use-dev-proxy-with-github-actions' },
+          { title: 'Find out which APIs my app calls', time: '5 min', href: 'https://learn.microsoft.com/microsoft-cloud/dev/dev-proxy/how-to/discover-urls-to-watch' },
         ].map((scenario) => (
           <a
             href={scenario.href}
@@ -333,10 +324,9 @@ import Layout from '../layouts/Layout.astro';
     <div class="max-w-6xl mx-auto">
       <div class="section-reveal grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">VS Code Extension</p>
-          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Dev Proxy Toolkit for Visual&nbsp;Studio&nbsp;Code.</h3>
+          <h3 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Stay in your editor. Control everything from&nbsp;there.</h3>
           <p class="text-lg leading-relaxed mb-6" style="color: var(--text-muted);">
-            Control Dev Proxy directly from your editor. Manage configurations with IntelliSense, use 100+ code snippets, and leverage the built-in MCP server for AI-assisted development&thinsp;&mdash;&thinsp;all without leaving VS&nbsp;Code.
+            The Dev Proxy Toolkit for VS Code gives you IntelliSense for config files, 100+ code snippets, debugger integration, and a built-in MCP server for AI-assisted setup&thinsp;&mdash;&thinsp;all without leaving your editor.
           </p>
           <a href="https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300 font-medium transition-colors">
             Install from Marketplace &rarr;
@@ -377,7 +367,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- .NET Foundation membership -->
+  <!-- Trust signals -->
   <section class="py-24 px-6 sm:px-8">
     <div class="max-w-4xl mx-auto text-center">
       <a
@@ -393,8 +383,8 @@ import Layout from '../layouts/Layout.astro';
           class="h-20 w-20 shrink-0"
         />
         <div class="text-center sm:text-left">
-          <p class="text-lg font-semibold mb-1" style="color: var(--text-primary);">Proud member of the .NET Foundation</p>
-          <p class="text-sm" style="color: var(--text-muted);">Dev Proxy is a community-maintained open source project supported by the .NET Foundation.</p>
+          <p class="text-lg font-semibold mb-1" style="color: var(--text-primary);">Backed by the .NET Foundation</p>
+          <p class="text-sm" style="color: var(--text-muted);">Open source, community-maintained, and runs entirely on your machine. No traffic leaves your device. No telemetry required.</p>
         </div>
       </a>
     </div>
@@ -408,10 +398,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="relative z-10 max-w-3xl mx-auto text-center">
       <h2 class="section-reveal text-3xl md:text-5xl font-bold mb-6">
         How does your app handle<br />
-        <span class="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">API errors?</span>
+        <span class="text-purple-400">a flaky API?</span>
       </h2>
       <p class="section-reveal text-lg mb-10" style="color: var(--text-muted);">
-        Find out in minutes. Dev Proxy is open source and free.
+        Find out in 5 minutes. Dev Proxy is free, open source, and runs entirely on your machine.
       </p>
       <div class="section-reveal flex gap-4 justify-center flex-wrap">
         <a
@@ -420,7 +410,7 @@ import Layout from '../layouts/Layout.astro';
           rel="noopener"
           class="group px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]"
         >
-          Get Started <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+          Simulate your first API error <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
         </a>
         <a
           href="https://github.com/dotnet/dev-proxy"
