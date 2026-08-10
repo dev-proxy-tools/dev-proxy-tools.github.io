@@ -4,19 +4,70 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const samples = await getCollection('samples');
+
   return samples.map((sample) => ({
     params: { slug: sample.id },
-    props: { sample },
+    props: {
+      sample,
+      relatedSamples: samples
+        .filter(candidate => candidate.id !== sample.id)
+        .sort((a, b) => {
+          const aSharedProducts = a.data.products.filter(product => sample.data.products.includes(product)).length;
+          const bSharedProducts = b.data.products.filter(product => sample.data.products.includes(product)).length;
+          return bSharedProducts - aSharedProducts
+            || new Date(b.data.updateDateTime).valueOf() - new Date(a.data.updateDateTime).valueOf();
+        })
+        .slice(0, 3),
+    },
   }));
 }
 
-const { sample } = Astro.props;
+const { sample, relatedSamples } = Astro.props;
 const { data } = sample;
 const { Content } = await render(sample);
 const ogImage = data.thumbnails.find(t => t.type === 'image')?.url;
+const siteURL = Astro.site ?? new URL('https://devproxy.net');
+const sampleURL = new URL(Astro.url.pathname, siteURL).href;
+const samplesURL = new URL(`${import.meta.env.BASE_URL}samples/`, siteURL).href;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: data.title,
+    description: data.shortDescription,
+    url: sampleURL,
+    dateCreated: new Date(data.creationDateTime).toISOString(),
+    dateModified: new Date(data.updateDateTime).toISOString(),
+    image: ogImage,
+    author: data.authors.map(author => ({
+      '@type': 'Person',
+      name: author.name,
+      sameAs: `https://github.com/${author.gitHubAccount}`,
+    })),
+    isBasedOn: data.url,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Samples',
+        item: samplesURL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: data.title,
+        item: sampleURL,
+      },
+    ],
+  },
+];
 ---
 
-<Layout title={data.title} description={data.shortDescription} image={ogImage}>
+<Layout title={data.title} description={data.shortDescription} image={ogImage} structuredData={structuredData}>
   <section class="pt-16 pb-24 px-4">
     <div class="max-w-4xl mx-auto">
 
@@ -102,6 +153,26 @@ const ogImage = data.thumbnails.find(t => t.type === 'image')?.url;
           </div>
         </div>
       )}
+
+      <aside class="mt-16 pt-8 border-t" style="border-color: var(--border-primary);" aria-labelledby="related-samples-heading">
+        <h2 id="related-samples-heading" class="text-xl font-bold mb-6">Related samples</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          {relatedSamples.map(relatedSample => (
+            <a
+              href={`${import.meta.env.BASE_URL}samples/${relatedSample.id}/`}
+              class="group block rounded-2xl border p-5 transition-all duration-300 hover:border-purple-500/50"
+              style="background: var(--bg-secondary); border-color: var(--border-primary);"
+            >
+              <h3 class="font-semibold leading-snug group-hover:text-purple-400 transition-colors">
+                {relatedSample.data.title}
+              </h3>
+              <p class="text-sm mt-3 leading-relaxed line-clamp-3" style="color: var(--text-muted);">
+                {relatedSample.data.shortDescription}
+              </p>
+            </a>
+          ))}
+        </div>
+      </aside>
 
       <!-- Footer with dates -->
       <footer class="mt-16 pt-8 border-t flex items-center justify-between flex-wrap gap-4" style="border-color: var(--border-primary);">
