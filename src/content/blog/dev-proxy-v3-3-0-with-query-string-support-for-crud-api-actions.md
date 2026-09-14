@@ -34,11 +34,11 @@ You can simulate filtering patterns that real APIs use without creating separate
 
 ## Dev Proxy Toolkit
 
-[Dev Proxy Toolkit](https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit) is an extension that makes it easier to work with Dev Proxy from within Visual Studio Code. The latest released version is v1.34.0.
+[Dev Proxy Toolkit](https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit) is an extension that makes it easier to work with Dev Proxy from within Visual Studio Code. The latest released version is v1.36.0.
 
 In this version, we've:
 
-- Updated all snippets that reference schemas to use the Dev Proxy v3.2.0 schema
+- Updated all snippets that reference schemas to use the Dev Proxy v3.3.0 schema
 
 Checkout out the [changelog](https://marketplace.visualstudio.com/items?itemName=garrytrinder.dev-proxy-toolkit/changelog) for more information on changes and bug fixes.
 
