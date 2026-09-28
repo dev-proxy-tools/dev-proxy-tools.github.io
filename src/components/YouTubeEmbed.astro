@@ -1,0 +1,98 @@
+---
+/**
+ * Click-to-play YouTube embed. Renders a lightweight thumbnail and only loads
+ * the (privacy-enhanced) YouTube player after the visitor clicks, which keeps
+ * the page fast and avoids setting third-party cookies before consent.
+ */
+interface Props {
+  videoId: string;
+  title: string;
+  duration?: string;
+  playLabel?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const {
+  videoId,
+  title,
+  duration,
+  playLabel = 'Play video',
+  loading = 'lazy',
+  class: className = '',
+} = Astro.props;
+
+const thumbnail = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+const thumbnailSmall = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+---
+
+<div
+  class={`yt-embed group relative rounded-2xl border overflow-hidden aspect-video ${className}`}
+  style="background: var(--bg-secondary); border-color: var(--border-primary);"
+  data-yt-embed
+  data-video-id={videoId}
+  data-title={title}
+>
+  <button
+    type="button"
+    class="yt-embed-trigger absolute inset-0 w-full h-full cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-purple-500/60"
+    aria-label={`${playLabel}: ${title}${duration ? ` (${duration})` : ''}`}
+  >
+    <img
+      src={thumbnail}
+      srcset={`${thumbnailSmall} 480w, ${thumbnail} 1280w`}
+      sizes="(min-width: 1024px) 896px, 100vw"
+      alt=""
+      width="1280"
+      height="720"
+      loading={loading}
+      decoding="async"
+      class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+    />
+    <span class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" aria-hidden="true"></span>
+    <span class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+      <span class="flex items-center gap-3 pl-5 pr-6 py-3 sm:pl-6 sm:pr-7 sm:py-4 rounded-full bg-purple-600 group-hover:bg-purple-500 text-white font-semibold shadow-[0_0_40px_rgba(168,85,247,0.45)] transition-all duration-300 group-hover:scale-105">
+        <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.01-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14Z" /></svg>
+        <span class="text-sm sm:text-base">{playLabel}</span>
+      </span>
+    </span>
+    {duration && (
+      <span class="absolute bottom-3 right-3 px-2 py-1 rounded-md bg-black/75 text-white text-xs font-mono" aria-hidden="true">{duration}</span>
+    )}
+  </button>
+</div>
+
+<script>
+  type ClarityWindow = Window & { clarity?: (...args: unknown[]) => void };
+
+  function play(container: HTMLElement) {
+    if (container.dataset.loaded) return;
+    container.dataset.loaded = 'true';
+
+    const { videoId, title } = container.dataset;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    iframe.title = title ?? 'YouTube video';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allowFullscreen = true;
+    iframe.className = 'absolute inset-0 w-full h-full border-0';
+    container.replaceChildren(iframe);
+    iframe.focus();
+
+    // Only fires if the visitor consented to analytics (Clarity is loaded).
+    (window as ClarityWindow).clarity?.('event', `video_play_${videoId}`);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-yt-embed]').forEach((container) => {
+    container.querySelector('.yt-embed-trigger')?.addEventListener('click', () => play(container), { once: true });
+  });
+
+  // Links like <a href="#intro-video" data-yt-play="VIDEO_ID"> scroll to and start the video.
+  document.querySelectorAll<HTMLAnchorElement>('[data-yt-play]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const container = document.querySelector<HTMLElement>(`[data-yt-embed][data-video-id="${link.dataset.ytPlay}"]`);
+      if (container) play(container);
+    });
+  });
+</script>
