@@ -336,6 +336,78 @@ const structuredData = {
     </div>
   </section>
 
+  <!-- Try it with a preset -->
+  <section class="py-32 px-6 sm:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="section-reveal text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Try It With a Preset</p>
+      <h2 class="section-reveal text-3xl md:text-5xl font-bold mb-8">Test the API your app calls.</h2>
+      <p class="section-reveal text-lg md:text-xl mb-12" style="color: var(--text-muted);">
+        Install Dev Proxy, download the preset for your API, and run your app as usual. It keeps calling the real API URLs.
+      </p>
+      <p class="section-reveal text-left text-sm font-semibold mb-3" style="color: var(--text-muted);">1. Install Dev Proxy</p>
+      <div class="section-reveal rounded-2xl border overflow-hidden text-left" style="background: var(--bg-secondary); border-color: var(--border-primary);" data-os-tabs>
+        <div class="flex border-b" role="tablist" aria-label="Operating system" style="border-color: var(--border-primary);">
+          {[
+            { id: 'windows', label: 'Windows' },
+            { id: 'macos', label: 'macOS' },
+            { id: 'linux', label: 'Linux' },
+          ].map((tab, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`os-tab-${tab.id}`}
+              aria-controls={`os-panel-${tab.id}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              tabindex={i === 0 ? 0 : -1}
+              data-os={tab.id}
+              class="-mb-px px-5 py-3 text-sm font-semibold border-b-2 border-transparent transition-colors hover:text-purple-400 aria-selected:border-purple-500 aria-selected:text-purple-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-purple-500"
+            >{tab.label}</button>
+          ))}
+        </div>
+        {[
+          { id: 'windows', lines: ['winget install DevProxy.DevProxy --silent'], note: 'After the installation finishes, open a new terminal.' },
+          { id: 'macos', lines: ['brew tap dotnet/dev-proxy', 'brew install dev-proxy'] },
+          { id: 'linux', lines: ['bash -c "$(curl -sL https://aka.ms/devproxy/setup.sh)"'] },
+        ].map((panel, i) => (
+          <div role="tabpanel" id={`os-panel-${panel.id}`} aria-labelledby={`os-tab-${panel.id}`} hidden={i !== 0} class="p-4 sm:p-6">
+            <div class="font-mono text-xs sm:text-sm space-y-1">
+              {panel.lines.map((line) => <p class="break-words" style="color: var(--text-secondary);">{line}</p>)}
+            </div>
+            {panel.note && <p class="mt-3 text-xs" style="color: var(--text-faint);">{panel.note}</p>}
+          </div>
+        ))}
+      </div>
+      <p class="section-reveal mt-8 text-left text-sm font-semibold mb-3" style="color: var(--text-muted);">2. Download a preset and start Dev Proxy with it</p>
+      <div class="section-reveal rounded-2xl border overflow-hidden text-left font-mono text-xs sm:text-sm" style="background: var(--bg-secondary); border-color: var(--border-primary);">
+        <div class="p-4 sm:p-6 space-y-1">
+          <p class="break-words" style="color: var(--text-secondary);">devproxy config get <span class="text-purple-400">github-rate-limiting</span></p>
+          <p class="break-words" style="color: var(--text-secondary);">devproxy --config-file "~dataFolder/configs/<span class="text-purple-400">github-rate-limiting</span>/.devproxy/devproxyrc.json"</p>
+        </div>
+      </div>
+      <p class="section-reveal mt-8 text-left text-sm font-semibold mb-3" style="color: var(--text-muted);">Presets for popular APIs</p>
+      <div class="section-reveal grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { api: 'GitHub', preset: 'github-rate-limiting' },
+          { api: 'OpenAI', preset: 'openai-throttling' },
+          { api: 'Anthropic', preset: 'anthropic-throttling' },
+          { api: 'Microsoft Graph', preset: 'microsoft-graph-rate-limiting' },
+        ].map((item) => (
+          <a
+            href={`${import.meta.env.BASE_URL}samples/${item.preset}/`}
+            class="rounded-xl border p-4 text-left transition-all duration-300 hover:border-purple-500/50"
+            style="background: var(--bg-secondary); border-color: var(--border-primary);"
+          >
+            <p class="text-sm font-semibold mb-1">{item.api}</p>
+            <p class="text-xs font-mono break-words" style="color: var(--text-faint);">{item.preset}</p>
+          </a>
+        ))}
+      </div>
+      <p class="section-reveal mt-8 text-sm" style="color: var(--text-faint);">
+        The first time you start Dev Proxy, you trust its certificate. <a href="https://aka.ms/devproxy/start" target="_blank" rel="noopener" class="text-purple-400 hover:text-purple-300">Step-by-step setup</a> &middot; <a href={`${import.meta.env.BASE_URL}samples/`} class="text-purple-400 hover:text-purple-300">More presets</a>
+      </p>
+    </div>
+  </section>
+
   <!-- Getting started video -->
   <section class="py-32 px-6 sm:px-8">
     <div class="max-w-4xl mx-auto text-center">
@@ -543,4 +615,35 @@ const structuredData = {
   );
 
   document.querySelectorAll('.section-reveal').forEach((el) => observer.observe(el));
+
+  document.querySelectorAll<HTMLElement>('[data-os-tabs]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const select = (tab: HTMLButtonElement, focus = false, persist = false) => {
+      tabs.forEach((t) => {
+        const selected = t === tab;
+        t.setAttribute('aria-selected', String(selected));
+        t.tabIndex = selected ? 0 : -1;
+        root.querySelector<HTMLElement>(`#${t.getAttribute('aria-controls')}`)!.hidden = !selected;
+      });
+      if (focus) tab.focus();
+      if (persist) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('os', tab.dataset.os!);
+        history.replaceState(null, '', url);
+      }
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab, false, true));
+      tab.addEventListener('keydown', (e) => {
+        const next = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (next) select(tabs[(i + next + tabs.length) % tabs.length], true, true);
+      });
+    });
+    // A shared ?os= link wins over the visitor's own OS.
+    const fromUrl = new URLSearchParams(window.location.search).get('os');
+    const platform = (navigator.userAgent || '').toLowerCase();
+    const detected = platform.includes('mac') ? 'macos' : platform.includes('linux') && !platform.includes('android') ? 'linux' : 'windows';
+    const initial = tabs.find((t) => t.dataset.os === fromUrl) ?? tabs.find((t) => t.dataset.os === detected);
+    if (initial) select(initial);
+  });
 </script>
