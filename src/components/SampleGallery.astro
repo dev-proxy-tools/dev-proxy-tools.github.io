@@ -75,7 +75,7 @@ const { samples } = Astro.props;
   </div>
 
   <p id="no-results" class="text-center py-16 hidden" style="color: var(--text-faint);">
-    No samples match your search.
+    No presets or samples match your search.
   </p>
 </div>
 
@@ -98,7 +98,7 @@ const { samples } = Astro.props;
       if (matches) visible++;
     });
 
-    countEl.textContent = `${visible} sample${visible !== 1 ? 's' : ''}`;
+    countEl.textContent = `${visible} result${visible !== 1 ? 's' : ''}`;
     noResults.classList.toggle('hidden', visible > 0);
   });
 </script>
